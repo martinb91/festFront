@@ -1,0 +1,9 @@
+<div class="card">
+  <img class="card-img-top" [src]="fellepo.pictureURL" height="160" alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title"> {{fellepo.name}}</h4>
+    <p class="card_text card-text">{{fellepo.description}}</p>
+    <p class="card_text card-text" *ngFor="let style of  fellepo.styles">{{style}}</p>
+    <a [routerLink]="['./',fellepo.id]" class="row justify-content-end pr-4">Tovább</a>
+  </div>
+</div>
