@@ -1,9 +1,9 @@
 export class ArtistModel {
-  id?: string;
+  id?: number;
   name: string;
   pictureURL: string;
   description: string;
-  styles: Array<string>;
+  styles: ArtistStyleModel[];
 
   constructor(param?: ArtistModel) {
     if (param) {
@@ -13,11 +13,15 @@ export class ArtistModel {
 
   static get emptyArtist() {
     return {
-      'id': '',
+      'id': 0,
       'name': '',
       'pictureURL': '',
       'description': '',
       'styles' : ['']
     };
   }
+}
+
+export class ArtistStyleModel{
+  style :string;
 }

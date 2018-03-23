@@ -17,9 +17,8 @@
   </div>
 
 </div>
-
-
-<div class="card-deck pt-5 pb-5" *ngFor="let artists of artistsGrouppedBy3$ ">
+{{artistsGrouppedBy3$ | async | json}}
+<div class="card-deck pt-5 pb-5" *ngFor="let artists of artistsGrouppedBy3$ | async">
   <app-artistcard class="col col-md-6 col-lg-4"
                   *ngFor="let artist of artists "
                  [fellepo]="artist"

@@ -18,22 +18,16 @@ export class EventService {
  //   this._events = this._getMockData();
   }
 
-  getEventById(id: string) {
-    const ev = this._events.filter(x => x.id === id);
-    return ev.length > 0 ? ev[0] : new EventModel(EventModel.emptyEvent);
+  getEventById(id: number) {
+    return this._http.get<EventModel>(`${environment.Spring_API_URL}/festival/${id}.json`);
+
   }
 
-  /*  getAllEvents(): EventModel[]{
-      return this._events.map(event => {
-             return {
-                  ...event,
-                  position: this._positionService.getPositionById(event.positionId)
-             };
-            });
-        }*/
-
   getAllEvents(): Observable<EventModel[]> {
-    return this._http.get(`${environment.firebase.baseUrl}/events.json`)
+    return this._http.get(`${environment.Spring_API_URL}/festival/all.json`)
+      .map(data => Object.values(data).map(event => new EventModel(event)));
+
+/*    return this._http.get(`${environment.Spring_API_URL}/festival/all.json`)
       .map(data => Object.values(data))
         .map(evm => evm.map(em =>
           Observable.zip(
@@ -45,7 +39,7 @@ export class EventService {
             position: p
           };
         })
-      )).switchMap(zipStreamArray => Observable.forkJoin(zipStreamArray));
+      )).switchMap(zipStreamArray => Observable.forkJoin(zipStreamArray));*/
   }
 
 

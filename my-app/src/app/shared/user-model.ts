@@ -4,6 +4,7 @@ export class UserModel {
   email: string;
   address: string;
   dateOfBirth: string;
+  password: string;
   gender: string;
   profilePictureUrl: string;
 
@@ -19,6 +20,7 @@ export class UserModel {
       id: 0,
       name: 'Géza',
       email: 'geza@valami.com',
+      password: 'xyz',
       address: 'Fő út',
       dateOfBirth: '1991.01.01',
       gender: 'male',
@@ -34,7 +36,8 @@ export class UserModel {
       address: '',
       dateOfBirth: '',
       gender: '',
-      profilePictureUrl:''
+      profilePictureUrl:'',
+      password:''
     };
   }
 }

@@ -17,7 +17,7 @@ export class LoggedInGuard implements CanActivate {
 
   canActivate(next: ActivatedRouteSnapshot,
               state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this._userService.isLoggedin) {
+    if (localStorage.getItem('currentUser')) {
       return true;
     } else {
       // this._router.navigate(['/home']);

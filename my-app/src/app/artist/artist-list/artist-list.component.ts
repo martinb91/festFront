@@ -10,20 +10,21 @@ import {Observable} from "rxjs/Observable";
   styleUrls: ['./artist-list.component.css']
 })
 export class ArtistListComponent implements OnInit {
-  artistsGrouppedBy3$: ArtistModel[];
+  artistsGrouppedBy3$: Observable<ArtistModel[]>;
 
   constructor(private _artistService: ArtistService, public userService: UserService) {
   }
 
   ngOnInit() {
-   this.artistsGrouppedBy3$ = this._artistService._getMockData()
-      .reduce((acc, curr: ArtistModel, ind: number) => {
-          if (ind % 3 === 0) {
-            acc.push([]);
-          }
-          acc[acc.length - 1].push(curr);
-          return acc;
-        }, []);
-    console.log(this.artistsGrouppedBy3$);
+    this.artistsGrouppedBy3$ = this._artistService.getAllArtists()
+      .map(data => {
+        return data.reduce((acc, curr: ArtistModel, ind: number) => {
+            if (ind % 3 === 0) {
+              acc.push([]);
+            }
+            acc[acc.length - 1].push(curr);
+            return acc;
+          }, []);
+      });
   }
 }

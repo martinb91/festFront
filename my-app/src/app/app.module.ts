@@ -17,6 +17,9 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ArtistcardComponent } from './artist/artistcard/artistcard.component';
 import {ArtistService} from "./shared/artist.service";
+import {MomentModule} from "angular2-moment";
+import 'moment/locale/hu';
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import {ArtistService} from "./shared/artist.service";
     BrowserModule,
     RoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpModule,
+    MomentModule
   ],
   providers: [EventService, UserService, PositionService, ArtistService, LoggedInGuard],
   bootstrap: [AppComponent]

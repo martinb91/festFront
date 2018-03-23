@@ -10,9 +10,11 @@ export class ArtistcardComponent implements OnInit {
 
   @Input() fellepo : ArtistModel;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+
   }
 
 }

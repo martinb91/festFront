@@ -1,52 +1,31 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import {environment} from "../../environments/environment";
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {environment} from '../../environments/environment';
 import 'rxjs/add/observable/zip';
 import 'rxjs/add/operator/switchMap';
-import "rxjs/add/observable/of";
-import "rxjs/add/observable/forkJoin";
-import {ArtistModel} from "./artist-model";
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/forkJoin';
+import {ArtistModel} from './artist-model';
 
 @Injectable()
 export class ArtistService {
   private _artists: ArtistModel[];
 
   constructor( private _http: HttpClient) {
-    //   this._artists = this._getMockData();
+       // this._artists = this._getMockData();
   }
 
-  getEventById(id: string) {
-    const art = this._artists.filter(x => x.id === id);
-    return art.length > 0 ? art[0] : new ArtistModel(ArtistModel.emptyArtist);
+  getArtistById(id: number) {
+    return this._http.get<ArtistModel>(`${environment.Spring_API_URL}/artists/${id}.json`);
   }
 
   getAllArtists(): Observable<ArtistModel[]> {
-    return this._http.get(`${environment.firebase.baseUrl}/artists.json`)
+    return this._http.get(`${environment.Spring_API_URL}/artists/artists.json`)
       .map(data => Object.values(data).map(artist => new ArtistModel(artist)));
   }
-/*  update(param: ArtistModel) {
-    this._artists = this._artists.map(ar => {
-      return ar.id === param.id ? {...param} : ar;
-    });
-  }*/
 
-  create(param: ArtistModel) {
-    console.log(param);
-    this._artists = [
-      ...this._artists,
-      {
-        id: this._getMaxId() + 1,
-        ...param
-      }
-    ];
-  }
-
-  private _getMaxId() {
-    return this._artists.reduce((x, y) => x.id > y.id ? x : y).id;
-  }
-
-    public _getMockData() : ArtistModel[] {
+/*    public _getMockData() : ArtistModel[] {
       return [
         new ArtistModel({
           'id': '31',
@@ -85,5 +64,17 @@ export class ArtistService {
           'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
         })
       ];
+    }*/
+  save(artist: ArtistModel) {
+    if (artist.id) { // udpate
+      return this._http.put(`${environment.Spring_API_URL}/artists/${artist.id}.json`, artist);
+    } else { // create
+      return this._http.post(`${environment.Spring_API_URL}/artists/new.json`, artist);
+/*        .map((PostReturn: { name: string }) => PostReturn.name)
+        .switchMap(sId => this._http.patch(
+          `${environment.Spring_API_URL}/artists/${sId}.json`,
+          {id: sId}
+        )); */
     }
+  }
 }

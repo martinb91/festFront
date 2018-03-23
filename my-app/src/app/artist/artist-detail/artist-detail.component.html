@@ -1,3 +1,92 @@
-<p>
-  artist-detail works!
-</p>
+<div class="container">
+
+  <!--Form with header-->
+  <div class="card mb-4 col-11 col-sm-8 mx-auto p-0">
+
+    <div class="card-header">
+      <div class="bg-light text-center">
+        <h3 *ngIf="!artist.id; else modify">Új fellépő létrehozása</h3>
+        <ng-template #modify><h3>Fellépő szerkesztese</h3></ng-template>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <form #artistForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="fellepo">Fellépő neve:</label>
+          <input type="text" id="fellepo"
+                 class="form-control mb-3"
+                 placeholder="Fellépő neve"
+                 required
+                 [disabled]="viewForm"
+                 [(ngModel)]="artist.name" name="name"
+                 #name="ngModel"
+          >
+          <alert type="danger" *ngIf="name.touched && name.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+        <div class="form-group">
+          <label for="fellepo_leiras">Fellépő leírása</label>
+          <textarea id="fellepo_leiras"
+                 class="form-control"
+                 placeholder="leírás"
+                 required
+                 [disabled]="viewForm"
+                 [(ngModel)]="artist.description" name="description"
+                 #description="ngModel"
+          ></textarea>
+          <alert type="danger" *ngIf="description.touched && description.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+        <div ngModelGroup="stilus" #stilus="ngModelGroup" >
+          <h3>Stílusok</h3>
+          <div *ngFor="let style of styles; let i=index;">
+            <label>Stílus {{i + 1}}</label>
+            <input type="text"
+                   [(ngModel)]="artist.styles[i]" required name="styles[{{style}}]">
+            <button type="button" (click)="remove(i); stilus.control.markAsTouched()">Törlés</button>
+          </div>
+          <button type="button" (click)="add(); stilus.control.markAsTouched()">Stílus hozzáadása</button>
+
+        </div>
+      <div  class="card mb-4 col-11 col-sm-8 mx-auto p-0">
+        <pre >{{artist | json}}</pre>
+        {{count}}
+      </div>
+
+        <div class="text-center mb-3">
+          <ng-container *ngIf="userService.isLoggedin">
+            <ng-container *ngIf="viewForm; else editButtons">
+              <button type="button"
+                      class="btn btn-primary btn-lg"
+                      (click)="viewForm = false"
+              >Szerkesztes
+              </button>
+            </ng-container>
+            <ng-template #editButtons>
+              <button type="submit"
+                      class="btn btn-primary btn-lg"
+                      [disabled]="artistForm.invalid"
+              >Mentés
+              </button>
+              <button type="button"
+                      class="btn btn-danger btn-lg"
+                      (click)="delete()"
+                      *ngIf="artist.id"
+              >Törlés
+              </button>
+            </ng-template>
+          </ng-container>
+          <button type="button"
+                  class="btn btn-primary btn-lg"
+                  (click)="navigateBack()"
+          >Vissza
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

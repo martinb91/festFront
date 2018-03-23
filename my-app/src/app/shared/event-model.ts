@@ -1,12 +1,13 @@
 import {PositionModel} from "./position-model";
 
 export class EventModel {
-  id?: string;
+  id?: number;
   name: string;
-  date: string; //  ezt majd date lesz
+  beginDate: string;
+  endDate: string;
   pictureURL: string;
   description: string;
-  positionId: number;
+//  positionId: number;
   position?: PositionModel;
 
   constructor(param?: EventModel) {
@@ -17,12 +18,14 @@ export class EventModel {
 
   static get emptyEvent() {
     return {
-      'id': '',
+      'id': 0,
       'name': '',
       'date': '',
       'pictureURL': '',
       'description': '',
-      'positionId': 0
+ //     'positionId': 0,
+      'beginDate': '',
+      'endDate': ''
     };
   }
 }
