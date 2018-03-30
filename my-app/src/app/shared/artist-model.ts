@@ -3,7 +3,7 @@ export class ArtistModel {
   name: string;
   pictureURL: string;
   description: string;
-  styles: ArtistStyleModel[];
+  styles: Style[];
 
   constructor(param?: ArtistModel) {
     if (param) {
@@ -17,11 +17,13 @@ export class ArtistModel {
       'name': '',
       'pictureURL': '',
       'description': '',
-      'styles' : ['']
+      'styles' : [ ]
     };
   }
 }
 
-export class ArtistStyleModel{
-  style :string;
+
+export class Style {
+  style: string;
+  id: number;
 }

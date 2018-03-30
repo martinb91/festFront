@@ -13,13 +13,14 @@ import {EventService} from "./shared/event.service";
 import {UserService} from "./shared/user.service";
 import {PositionService} from "./shared/position.service";
 import {LoggedInGuard} from "./shared/logged-in.guard";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { ArtistcardComponent } from './artist/artistcard/artistcard.component';
 import {ArtistService} from "./shared/artist.service";
 import {MomentModule} from "angular2-moment";
 import 'moment/locale/hu';
 import {HttpModule} from "@angular/http";
+import {StyleComponent} from "./artist/style.component";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {HttpModule} from "@angular/http";
     FooterComponent,
     ...RoutingModule.routableComponents,
     EventcardComponent,
-    ArtistcardComponent
+    ArtistcardComponent,
+    StyleComponent
   ],
   imports: [
     CollapseModule.forRoot(),
@@ -40,7 +42,8 @@ import {HttpModule} from "@angular/http";
     FormsModule,
     HttpClientModule,
     HttpModule,
-    MomentModule
+    MomentModule,
+    ReactiveFormsModule
   ],
   providers: [EventService, UserService, PositionService, ArtistService, LoggedInGuard],
   bootstrap: [AppComponent]

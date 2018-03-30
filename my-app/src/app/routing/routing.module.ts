@@ -11,8 +11,9 @@ import {ProfileComponent} from "../user/profile/profile.component";
 import {LoginComponent} from "../user/login/login.component";
 import {LoggedInGuard} from "../shared/logged-in.guard";
 import {ArtistListComponent} from "../artist/artist-list/artist-list.component";
-import {ArtistDetailComponent} from "../artist/artist-detail/artist-detail.component";
 import {ArtistComponent} from "../artist/artist.component";
+import {ArtistDetail3Component} from "../artist/artist-detail3/artist-detail3.component";
+import {FrameForArtistDetailsComponent} from "../artist/frame-for-artist-details/frame-for-artist-details.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -30,8 +31,8 @@ const routes: Routes = [
     component: ArtistComponent,
     children: [
       {path: '', component: ArtistListComponent},
-      {path: 'new', component: ArtistDetailComponent, canActivate: [LoggedInGuard]},
-      {path: ':id', component: ArtistDetailComponent, canActivate: [LoggedInGuard]}
+       // {path: 'new', component: ArtistDetail3Component, canActivate: [LoggedInGuard]},
+      {path: ':id', component: FrameForArtistDetailsComponent}
     ]
   },
   {path: 'about', component: AboutComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
 
 export class RoutingModule {
   static routableComponents = [
+    FrameForArtistDetailsComponent,
     HomeComponent,
     EventComponent,
     EventListComponent,
@@ -65,7 +67,7 @@ export class RoutingModule {
     ProfileComponent,
     ProfileEditComponent,
     ArtistComponent,
-    ArtistDetailComponent,
+    ArtistDetail3Component, //ArtistDetailComponent ArtistDetail2Component Ha működnének ezeket is importálni kellene
     ArtistListComponent,
     PageNotFoundComponent
   ];

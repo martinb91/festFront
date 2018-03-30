@@ -1,0 +1,38 @@
+<form [formGroup]="artForm" (ngSubmit)="onSubmit()">
+  <div style="margin-bottom: 1em">
+    <button type="submit"
+            [disabled]="artForm.pristine" class="btn btn-success">Save</button> &nbsp;
+    <button type="button" (click)="revert()"
+            [disabled]="artForm.pristine" class="btn btn-danger">Revert</button>
+  </div>
+
+  <!-- Hero Detail Controls -->
+  <div class="form-group">
+    <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+  </div>
+
+  <div formArrayName="styles" class="well well-lg">
+    <div *ngFor="let style of styles.controls; let i=index" [formGroupName]="i" >
+      <!-- The repeated address template -->
+      <h4>Address #{{i + 1}}</h4>
+      <div style="margin-left: 1em;">
+        <div class="form-group">
+          <label class="center-block">Street:
+            <input class="form-control" formControlName="style">
+          </label>
+        </div>
+      </div>
+      <br>
+      <!-- End of the repeated address template -->
+    </div>
+    <button (click)="addLair()" type="button">Add a Secret Lair</button>
+  </div>
+</form>
+
+<p>heroForm value: {{ artForm.value | json}}{{_artist | json}}</p>
+
+<h4>Name change log</h4>
+<div *ngFor="let name of nameChangeLog">{{name}}</div>
+

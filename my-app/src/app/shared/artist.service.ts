@@ -10,7 +10,6 @@ import {ArtistModel} from './artist-model';
 
 @Injectable()
 export class ArtistService {
-  private _artists: ArtistModel[];
 
   constructor( private _http: HttpClient) {
        // this._artists = this._getMockData();
