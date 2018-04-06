@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EventModel} from '../../shared/event-model';
 import {EventService} from '../../shared/event.service';
@@ -14,7 +14,7 @@ import 'rxjs/add/operator/takeUntil';
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent implements OnInit, OnDestroy {
-  event: EventModel;
+  @Input() event: EventModel;
   viewForm = true;
 
   // ezt a subject-et fogjuk hasznalni az ossszes subscription zárására
@@ -28,16 +28,8 @@ export class EventDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const evId = this._route.snapshot.params['id'];
-    this.event = new EventModel();
     this.viewForm = !!evId;
-
-
-    if (evId) {
-      this._eventService.getEventById(evId)
-        .takeUntil(this._destroy$)
-        .subscribe(evm => this.event = evm);
-      console.log('kaptunk eventid-t', evId);
-    }
+    console.log(event);
   }
 
   ngOnDestroy() {

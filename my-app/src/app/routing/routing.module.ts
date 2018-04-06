@@ -14,6 +14,7 @@ import {ArtistListComponent} from "../artist/artist-list/artist-list.component";
 import {ArtistComponent} from "../artist/artist.component";
 import {ArtistDetail3Component} from "../artist/artist-detail3/artist-detail3.component";
 import {FrameForArtistDetailsComponent} from "../artist/frame-for-artist-details/frame-for-artist-details.component";
+import {FrameForEventDetailsComponent} from "../event/frame-for-event-details/frame-for-event-details.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -23,7 +24,7 @@ const routes: Routes = [
     children: [
       {path: '', component: EventListComponent},
       {path: 'new', component: EventDetailComponent, canActivate: [LoggedInGuard]},
-      {path: ':id', component: EventDetailComponent, canActivate: [LoggedInGuard]}
+      {path: ':id', component: FrameForEventDetailsComponent, canActivate: [LoggedInGuard]}
     ]
   },
   {
@@ -31,7 +32,7 @@ const routes: Routes = [
     component: ArtistComponent,
     children: [
       {path: '', component: ArtistListComponent},
-       // {path: 'new', component: ArtistDetail3Component, canActivate: [LoggedInGuard]},
+      //{path: 'new', component: ArtistDetail3Component, canActivate: [LoggedInGuard]},
       {path: ':id', component: FrameForArtistDetailsComponent}
     ]
   },
@@ -58,6 +59,7 @@ const routes: Routes = [
 export class RoutingModule {
   static routableComponents = [
     FrameForArtistDetailsComponent,
+    FrameForEventDetailsComponent,
     HomeComponent,
     EventComponent,
     EventListComponent,

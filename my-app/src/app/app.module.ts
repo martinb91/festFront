@@ -21,6 +21,10 @@ import {MomentModule} from "angular2-moment";
 import 'moment/locale/hu';
 import {HttpModule} from "@angular/http";
 import {StyleComponent} from "./artist/style.component";
+import { ConcertListComponent } from './concert/concert-list/concert-list.component';
+import { ConcertcardComponent } from './concert/concertcard/concertcard.component';
+import {ConcertService} from "./shared/concert.service";
+import { FrameForEventDetailsComponent } from './event/frame-for-event-details/frame-for-event-details.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import {StyleComponent} from "./artist/style.component";
     ...RoutingModule.routableComponents,
     EventcardComponent,
     ArtistcardComponent,
-    StyleComponent
+    StyleComponent,
+    ConcertListComponent,
+    ConcertcardComponent,
+    FrameForEventDetailsComponent
   ],
   imports: [
     CollapseModule.forRoot(),
@@ -45,7 +52,7 @@ import {StyleComponent} from "./artist/style.component";
     MomentModule,
     ReactiveFormsModule
   ],
-  providers: [EventService, UserService, PositionService, ArtistService, LoggedInGuard],
+  providers: [EventService, UserService, PositionService, ArtistService, ConcertService, LoggedInGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

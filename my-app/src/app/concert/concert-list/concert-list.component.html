@@ -1,0 +1,29 @@
+<!--<pre>
+  {{concerts | json}}
+</pre>-->
+<div class="card mb-4 col-11 col-sm-8 mx-auto p-0">
+<table class="table table-responsive table-hover text-center mt-5">
+  <thead>
+  <tr>
+    <th class="text-center">Fesztivál neve</th>
+    <th class="text-center">Időpontja</th>
+    <th class="text-center d-none d-md-table-cell">Előadó neve</th>
+    <th class="text-center">Jegy</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let concert of _concerts">
+    <td scope="row">
+      <a [routerLink]="['/event', concert.festival.id]">
+        {{ concert.festival.name }}
+      </a>
+    </td>
+    <td>{{ concert.beginDate | amDateFormat:'LLL'}}</td>
+    <td>{{concert.artist.name}}</td>
+    <td>link a jegynek...</td>
+  </tr>
+
+  </tbody>
+</table>
+</div>
