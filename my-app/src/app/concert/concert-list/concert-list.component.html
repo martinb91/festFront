@@ -20,7 +20,11 @@
       </a>
     </td>
     <td>{{ concert.beginDate | amDateFormat:'LLL'}}</td>
-    <td>{{concert.artist.name}}</td>
+    <td>
+      <a [routerLink]="['/artist', concert.artist.id]">
+        {{concert.artist.name}}
+      </a>
+    </td>
     <td>link a jegynek...</td>
   </tr>
 

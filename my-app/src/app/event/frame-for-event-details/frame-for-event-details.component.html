@@ -1,1 +1,3 @@
-<app-event-detail *ngIf="event" [event]="event"></app-event-detail>
+<app-event-detail *ngIf="event" [_event]="event"></app-event-detail>
+<app-concert-list *ngIf="_concerts" [_concerts]="_concerts"></app-concert-list>
+<app-accommodation-list  *ngIf="_accommodations" [_accommodations]="_accommodations" ></app-accommodation-list>

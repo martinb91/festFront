@@ -15,4 +15,9 @@ export class ConcertService {
     return this._http.get<ConcertModel>(`${environment.Spring_API_URL}/concert/byArtist/${id}.json`)
       .map(data => Object.values(data).map(concert => new ConcertModel(concert)));
   }
+
+  getConcertsByEventID(id: number) :Observable<ConcertModel[]>{
+    return this._http.get<ConcertModel>(`${environment.Spring_API_URL}/concert/byEvent/${id}.json`)
+      .map(data => Object.values(data).map(concert => new ConcertModel(concert)));
+  }
 }

@@ -24,7 +24,22 @@ export class ArtistService {
       .map(data => Object.values(data).map(artist => new ArtistModel(artist)));
   }
 
-/*    public _getMockData() : ArtistModel[] {
+  save(artist: ArtistModel) {
+    if (artist.id) { // udpate
+      return this._http.put(`${environment.Spring_API_URL}/artists/${artist.id}.json`, artist);
+    } else { // create
+      return this._http.post(`${environment.Spring_API_URL}/artists/new.json`, artist);
+/*        .map((PostReturn: { name: string }) => PostReturn.name)
+        .switchMap(sId => this._http.patch(
+          `${environment.Spring_API_URL}/artists/${sId}.json`,
+          {id: sId}
+        )); */
+    }
+  }
+
+
+
+  /*    public _getMockData() : ArtistModel[] {
       return [
         new ArtistModel({
           'id': '31',
@@ -64,16 +79,5 @@ export class ArtistService {
         })
       ];
     }*/
-  save(artist: ArtistModel) {
-    if (artist.id) { // udpate
-      return this._http.put(`${environment.Spring_API_URL}/artists/${artist.id}.json`, artist);
-    } else { // create
-      return this._http.post(`${environment.Spring_API_URL}/artists/new.json`, artist);
-/*        .map((PostReturn: { name: string }) => PostReturn.name)
-        .switchMap(sId => this._http.patch(
-          `${environment.Spring_API_URL}/artists/${sId}.json`,
-          {id: sId}
-        )); */
-    }
-  }
+
 }

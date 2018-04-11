@@ -7,8 +7,9 @@ export class EventModel {
   endDate: string;
   pictureURL: string;
   description: string;
-//  positionId: number;
   position?: PositionModel;
+  styles : Style[];
+
 
   constructor(param?: EventModel) {
     if (param) {
@@ -28,4 +29,9 @@ export class EventModel {
       'endDate': ''
     };
   }
+}
+
+export class Style {
+  style: string;
+  id: number;
 }

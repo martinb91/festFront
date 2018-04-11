@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, DoCheck, Input, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "../../shared/user.service";
 import {ActivatedRoute} from "@angular/router";
 import {ArtistService} from "../../shared/artist.service";
@@ -6,14 +6,14 @@ import {ArtistModel, Style} from "../../shared/artist-model";
 import {Location} from "@angular/common";
 import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/takeUntil';
-import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-artist-detail3',
   templateUrl: './artist-detail3.component.html',
   styleUrls: ['./artist-detail3.component.css']
 })
-export class ArtistDetail3Component implements OnInit, OnDestroy {
+export class ArtistDetail3Component implements OnInit, OnDestroy{
   @Input() _artist: ArtistModel;
   viewForm = true;
   private _destroy$ = new Subject<void>();
@@ -47,19 +47,17 @@ export class ArtistDetail3Component implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.myForm = this._fb.group({
-      name: [this._artist.name],
+      name: new FormControl({value: this._artist.name, disabled: true}),
       id: [this._artist.id],
-      description: [this._artist.description],
+      description: new FormControl({value: this._artist.description, disabled: true}),
       styles: this._fb.array([])
     });
     this._artist.styles.forEach(arti => this.addStyle(arti));
   }
 
   addStyle(s?: Style) {
-    console.log(s);
     const control = <FormArray>this.myForm.controls['styles'];
     const styleCtrl = this.initStyle(s);
-    console.log(styleCtrl);
     control.push(styleCtrl);
   }
 
@@ -75,6 +73,12 @@ export class ArtistDetail3Component implements OnInit, OnDestroy {
   removeStyle(i: number) {
     const control = <FormArray>this.myForm.controls['styles'];
     control.removeAt(i);
+  }
+
+  editMode(){
+    this.viewForm = false;
+    // this.myForm.get('name').enable();
+    this.myForm.enable();
   }
 }
 

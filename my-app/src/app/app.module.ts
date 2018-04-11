@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AlertModule, CollapseModule} from 'ngx-bootstrap';
+import { AlertModule, CollapseModule} from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -24,7 +24,8 @@ import {StyleComponent} from "./artist/style.component";
 import { ConcertListComponent } from './concert/concert-list/concert-list.component';
 import { ConcertcardComponent } from './concert/concertcard/concertcard.component';
 import {ConcertService} from "./shared/concert.service";
-import { FrameForEventDetailsComponent } from './event/frame-for-event-details/frame-for-event-details.component';
+import { AccommodationListComponent } from './accommodation/accommodation-list/accommodation-list.component';
+import {AccommodationService} from "./shared/accommodation.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { FrameForEventDetailsComponent } from './event/frame-for-event-details/f
     StyleComponent,
     ConcertListComponent,
     ConcertcardComponent,
-    FrameForEventDetailsComponent
+    AccommodationListComponent
   ],
   imports: [
     CollapseModule.forRoot(),
@@ -52,7 +53,7 @@ import { FrameForEventDetailsComponent } from './event/frame-for-event-details/f
     MomentModule,
     ReactiveFormsModule
   ],
-  providers: [EventService, UserService, PositionService, ArtistService, ConcertService, LoggedInGuard],
+  providers: [EventService, UserService, PositionService, ArtistService, ConcertService, LoggedInGuard, AccommodationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
