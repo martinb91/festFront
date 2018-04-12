@@ -27,4 +27,17 @@ export class ArtistListComponent implements OnInit {
           }, []);
       });
   }
+
+  artistsByStyle(style){
+    this.artistsGrouppedBy3$ = this._artistService.getArtistsByStyle(style)
+      .map(data => {
+        return data.reduce((acc, curr: ArtistModel, ind: number) => {
+          if (ind % 3 === 0) {
+            acc.push([]);
+          }
+          acc[acc.length - 1].push(curr);
+          return acc;
+        }, []);
+      });
+  }
 }

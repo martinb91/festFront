@@ -5,7 +5,7 @@
     <p class="card_text card-text">{{fellepo.description}}</p>
     <p class="card_text card-text" >
       <span *ngFor="let item of fellepo.styles; let i=index; let last=last">
-            <a href="#" class="badge badge-secondary">#{{item}}{{last ? '' : ','}}</a>
+            <a (click)="refreshByStyle(item.style)" class="badge badge-secondary">#{{item.style}}{{last ? '' : ','}}</a>
         </span>
     </p>
     <a [routerLink]="['./',fellepo.id]" class="row justify-content-end pr-4">Tovább</a>

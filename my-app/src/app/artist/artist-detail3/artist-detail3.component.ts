@@ -46,13 +46,22 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
+    if(this._artist.name){
     this.myForm = this._fb.group({
       name: new FormControl({value: this._artist.name, disabled: true}),
       id: [this._artist.id],
       description: new FormControl({value: this._artist.description, disabled: true}),
       styles: this._fb.array([])
     });
-    this._artist.styles.forEach(arti => this.addStyle(arti));
+        this._artist.styles.forEach(arti => this.addStyle(arti));
+    }else{
+      this.myForm = this._fb.group({
+        name: [''],
+        id: [0],
+        description: [''],
+        styles: this._fb.array([])
+      });
+    }
   }
 
   addStyle(s?: Style) {
@@ -63,10 +72,11 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
 
   initStyle(s?: Style) {
     let sVal = new Style();
+    sVal.id=0;
     if (s) { sVal = s; }
-    console.log(sVal);
     return this._fb.group({
-      style: [sVal]
+      style: [sVal.style],
+      id: [sVal.id]
     })
   }
 
@@ -79,6 +89,12 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
     this.viewForm = false;
     // this.myForm.get('name').enable();
     this.myForm.enable();
+  }
+
+  delete(id: number){
+    if(this._artistService.deleteById(id)) {
+      this.navigateBack();
+    }
   }
 }
 

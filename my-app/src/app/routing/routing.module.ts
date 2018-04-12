@@ -32,8 +32,8 @@ const routes: Routes = [
     component: ArtistComponent,
     children: [
       {path: '', component: ArtistListComponent},
-      //{path: 'new', component: ArtistDetail3Component, canActivate: [LoggedInGuard]},
-      {path: ':id', component: FrameForArtistDetailsComponent}
+      {path: 'new', component: FrameForArtistDetailsComponent, canActivate: [LoggedInGuard]},
+      {path: ':id', component: FrameForArtistDetailsComponent, canActivate: [LoggedInGuard]}
     ]
   },
   {path: 'about', component: AboutComponent},

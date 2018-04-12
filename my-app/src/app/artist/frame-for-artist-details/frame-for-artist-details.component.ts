@@ -33,6 +33,8 @@ export class FrameForArtistDetailsComponent implements OnInit {
       artist$
         .subscribe(art => this._artist = art
         );
+    }else{
+      this._artist = new ArtistModel();
     }
   }
 

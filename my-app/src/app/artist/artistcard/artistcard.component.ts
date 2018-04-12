@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ArtistModel} from "../../shared/artist-model";
 
 @Component({
@@ -10,11 +10,16 @@ export class ArtistcardComponent implements OnInit {
 
   @Input() fellepo : ArtistModel;
 
+  @Output() stylePush = new EventEmitter<string>();
+
   constructor() {
   }
 
   ngOnInit() {
 
+  }
+  refreshByStyle(val: string){
+    this.stylePush.emit(val)
   }
 
 }

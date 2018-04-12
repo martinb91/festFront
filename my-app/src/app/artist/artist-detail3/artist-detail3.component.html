@@ -35,7 +35,7 @@
               </div>
             </div>
 
-            <div class="margin-20">
+            <div  *ngIf="!viewForm" class="margin-20">
               <a (click)="addStyle()" style="cursor: default">
                 Új stílus hozzáadása +
               </a>
@@ -61,7 +61,7 @@
             </button>
             <button type="button"
                     class="btn btn-danger btn-lg"
-                    (click)="delete()"
+                    (click)="delete(_artist.id)"
                     *ngIf="_artist.id"
             >Törlés
             </button>

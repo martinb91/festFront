@@ -25,7 +25,7 @@ export class ArtistService {
   }
 
   save(artist: ArtistModel) {
-    if (artist.id) { // udpate
+    if (artist.id && artist.id != 0 ) { // update
       return this._http.put(`${environment.Spring_API_URL}/artists/${artist.id}.json`, artist);
     } else { // create
       return this._http.post(`${environment.Spring_API_URL}/artists/new.json`, artist);
@@ -37,6 +37,15 @@ export class ArtistService {
     }
   }
 
+  deleteById(id: number) {
+    console.log(id);
+    this._http.delete(`${environment.Spring_API_URL}/artists/${id}.json`);
+  }
+
+  getArtistsByStyle(style : string) {
+    return this._http.get<ArtistModel>(`${environment.Spring_API_URL}/artists/style/${style}.json`)
+      .map(data => Object.values(data).map(artist => new ArtistModel(artist)));
+  }
 
 
   /*    public _getMockData() : ArtistModel[] {
@@ -79,5 +88,4 @@ export class ArtistService {
         })
       ];
     }*/
-
 }
