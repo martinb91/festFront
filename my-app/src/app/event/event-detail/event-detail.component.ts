@@ -26,29 +26,47 @@ export class EventDetailComponent implements OnInit, OnDestroy {
               private _location: Location,
               public userService: UserService,
               private _fb: FormBuilder) {
-    const evId = this._route.snapshot.params['id'];
+    const evId = +this._route.snapshot.params['id'];
     this.viewForm = !!evId;
   }
 
+  //  Ezt még újra kell gondolni, a struktúrának követni kell a backendet
   ngOnInit() {
-    this.myForm = this._fb.group({
-      name: new FormControl({value: this._event.name, disabled: true}),
-      id: [this._event.id],
-      description: new FormControl({value: this._event.description, disabled: true}),
-      styles: this._fb.array([]),
-      // beginDate: new FormControl({value: new Date(this.event.beginDate).toLocaleDateString()  + new Date(this.event.beginDate).toLocaleTimeString(), disabled: true}),
-      beginDate: new FormControl({value: this._event.beginDate, disabled: true}),
-      // endDate: new FormControl({value: new Date(this.event.endDate).toLocaleDateString()  + new Date(this.event.endDate).toLocaleTimeString(), disabled: true}),
-      endDate: new FormControl({value: this._event.endDate, disabled: true}),
-      position: this._fb.group({
-        x: new FormControl({value: this._event.position.x, disabled: true}),
-        y: new FormControl({value: this._event.position.y, disabled: true}),
-        city: new FormControl({value: this._event.position.city, disabled: true})
-    })
-    });
-     this._event.styles.forEach(arti => this.addStyle(arti));
+    if(this._event.name) {
+      this.myForm = this._fb.group({
+        name: new FormControl({value: this._event.name, disabled: true}),
+        id: [this._event.id],
+        description: new FormControl({value: this._event.description, disabled: true}),
+        styles: this._fb.array([]),
+        beginDate: new FormControl({value: this._event.beginDate, disabled: true}),
+        endDate: new FormControl({value: this._event.endDate, disabled: true}),
+        // beginDate: new FormControl({value: new Date(this.event.beginDate).toLocaleDateString()  + new Date(this.event.beginDate).toLocaleTimeString(), disabled: true}),
+        // endDate: new FormControl({value: new Date(this.event.endDate).toLocaleDateString()  + new Date(this.event.endDate).toLocaleTimeString(), disabled: true}),
+        position: this._fb.group({
+          id: new FormControl({value: this._event.position.id}),
+          x: new FormControl({value: this._event.position.x, disabled: true}),
+          y: new FormControl({value: this._event.position.y, disabled: true}),
+          city: new FormControl({value: this._event.position.city, disabled: true})
+        })
+      });
+      this._event.styles.forEach(arti => this.addStyle(arti));
+    }else {
+      this.myForm = this._fb.group({
+        name: [''],
+        id: [0],
+        description: [''],
+        styles: this._fb.array([]),
+        beginDate: [''],
+        endDate: [''],
+        position: this._fb.group({
+          id: [0],
+          x: [''],
+          y: [''],
+          city: ['']
+        })
+      });
+    }
   }
-
 
   ngOnDestroy() {
     this._destroy$.next();

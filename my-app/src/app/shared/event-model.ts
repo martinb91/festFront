@@ -7,7 +7,7 @@ export class EventModel {
   endDate: string;
   pictureURL: string;
   description: string;
-  position?: PositionModel;
+  position: PositionModel;
   styles : Style[];
 
 
@@ -24,8 +24,8 @@ export class EventModel {
       'date': '',
       'pictureURL': '',
       'description': '',
- //     'positionId': 0,
       'beginDate': '',
+      'position': '',
       'endDate': ''
     };
   }

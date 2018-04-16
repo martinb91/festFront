@@ -21,12 +21,16 @@ export class AccommodationService {
   }
 
   save(accommodationModel: AccommodationModel) {
-    console.log(accommodationModel);
     if (accommodationModel.id) { // update
       return this._http.put(`${environment.Spring_API_URL}/accommodation/${accommodationModel.id}.json`, accommodationModel);
     } else { // create
       return this._http.post(`${environment.Spring_API_URL}/accommodation/new.json`, accommodationModel);
     }
+  }
+
+  getAccommodationsByFestId(id : number): Observable<AccommodationModel[]> {
+    return this._http.get(`${environment.Spring_API_URL}/accommodation/nearTheFest/${id}.json`)
+      .map(data => Object.values(data).map(acc => new AccommodationModel(acc)));
   }
 
 }

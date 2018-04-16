@@ -3,17 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="a782b0d3-4375-48e2-b6af-b6ea47c587be" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/about/about.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/about/about.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my-app/src/app/routing/routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/routing/routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-app/src/app/shared/artist.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/shared/artist.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/shared/accommodation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/shared/accommodation.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/shared/event-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/shared/event-model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/shared/user-model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/shared/user-model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/shared/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/shared/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/user/profile-edit/profile-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/user/profile-edit/profile-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-app/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/my-app/src/styles.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,50 +34,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="artist-list.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.ts">
+      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/user.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+            <state relative-caret-position="364">
+              <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artist.service.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/artist.service.ts">
+      <file leaf-file-name="profile.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="46" column="79" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
+            <state relative-caret-position="183">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="artistcard.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.ts">
+      <file leaf-file-name="profile.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="artist-list.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="45" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="artistcard.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="38" />
+            <state relative-caret-position="272">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -108,20 +94,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/my-app/src/app/user/registration/registration.component.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/user/login/login.component.html" />
         <option value="$PROJECT_DIR$/my-app/src/app/shared/position-model.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.ts" />
         <option value="$PROJECT_DIR$/my-app/firebase.json" />
         <option value="$PROJECT_DIR$/my-app/src/app/app.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/shared/logged-in.guard.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.html" />
-        <option value="$PROJECT_DIR$/my-app/src/app/shared/user-model.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/home/home.component.html" />
-        <option value="$PROJECT_DIR$/my-app/src/app/shared/user.service.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/user/login/login.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/user/profile-edit/profile-edit.component.html" />
-        <option value="$PROJECT_DIR$/my-app/src/app/user/profile-edit/profile-edit.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/event/event-list/event-list.component.ts" />
         <option value="$PROJECT_DIR$/my-app/festApp-firebase.json" />
         <option value="$PROJECT_DIR$/my-app/src/environments/environment.prod.ts" />
@@ -135,30 +113,38 @@
         <option value="$PROJECT_DIR$/my-app/src/app/shared/artist-model.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/shared/concert-model.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/concert/concert-list/concert-list.component.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/shared/event-model.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/style.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.html" />
         <option value="$PROJECT_DIR$/my-app/src/app/shared/event.service.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/shared/concert.service.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/concert/concert-list/concert-list.component.html" />
         <option value="$PROJECT_DIR$/my-app/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/shared/accommodation.service.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/shared/accommodation-model.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/accommodation/accommodation-list/accommodation-list.component.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.ts" />
-        <option value="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.html" />
         <option value="$PROJECT_DIR$/my-app/src/app/accommodation/accommodation-list/accommodation-list.component.html" />
-        <option value="$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.html" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.html" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.html" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.html" />
-        <option value="$PROJECT_DIR$/my-app/src/app/routing/routing.module.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.ts" />
         <option value="$PROJECT_DIR$/my-app/src/app/shared/artist.service.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/routing/routing.module.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.html" />
+        <option value="$PROJECT_DIR$/my-app/src/app/shared/event-model.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/shared/accommodation.service.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/shared/user-model.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/home/home.component.html" />
+        <option value="$PROJECT_DIR$/my-app/src/styles.css" />
+        <option value="$PROJECT_DIR$/my-app/src/app/about/about.component.html" />
+        <option value="$PROJECT_DIR$/my-app/src/app/user/profile-edit/profile-edit.component.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.html" />
+        <option value="$PROJECT_DIR$/my-app/src/app/shared/user.service.ts" />
+        <option value="$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.ts" />
       </list>
     </option>
   </component>
@@ -172,11 +158,10 @@
     <handled-path value="$PROJECT_DIR$/my-app/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="793" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -184,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -216,66 +200,7 @@
               <item name="my-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="artist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="festFront" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="artist" type="462c0819:PsiDirectoryNode" />
-              <item name="artist-list" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="festFront" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="artist" type="462c0819:PsiDirectoryNode" />
-              <item name="artistcard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="festFront" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="concert" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="festFront" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="event" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="festFront" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="event" type="462c0819:PsiDirectoryNode" />
-              <item name="frame-for-event-details" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="festFront" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="routing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
-              <item name="festFront" type="462c0819:PsiDirectoryNode" />
-              <item name="my-app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
@@ -284,11 +209,31 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="festFront" type="462c0819:PsiDirectoryNode" />
+              <item name="my-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="festFront" type="b2602c69:ProjectViewProjectNode" />
+              <item name="festFront" type="462c0819:PsiDirectoryNode" />
+              <item name="my-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="profile-edit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -375,25 +320,33 @@
       <workItem from="1523449861274" duration="2195000" />
       <workItem from="1523479030018" duration="1315000" />
       <workItem from="1523519851984" duration="14800000" />
-      <workItem from="1523560800722" duration="590000" />
+      <workItem from="1523560800722" duration="1192000" />
+      <workItem from="1523616531479" duration="1402000" />
+      <workItem from="1523698622683" duration="1793000" />
+      <workItem from="1523722356414" duration="5428000" />
+      <workItem from="1523791567542" duration="4468000" />
+      <workItem from="1523822950313" duration="1777000" />
+      <workItem from="1523862615822" duration="5935000" />
+      <workItem from="1523900631764" duration="1856000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="217180000" />
+    <option name="totallyTimeSpent" value="240441000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49434572" visible="true" weight="0.27439797" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49434572" visible="true" weight="0.23891002" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24968314" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.1910569" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.18834688" />
       <window_info id="Favorites" order="2" sideWeight="0.5056543" side_tool="true" weight="0.21496312" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.0" />
@@ -422,45 +375,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/my-app/firebase.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/environments/environment.prod.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/festApp-firebase.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2771">
-          <caret line="163" column="53" selection-start-line="163" selection-start-column="53" selection-end-line="163" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/node_modules/rxjs/src/operators/map.ts" />
-    <entry file="file://$PROJECT_DIR$/my-app/node_modules/rxjs/add/operator/mergeMap.d.ts" />
-    <entry file="file://$PROJECT_DIR$/my-app/node_modules/rxjs/add/operator/switchMap.d.ts" />
-    <entry file="file://$PROJECT_DIR$/my-app/node_modules/@angular/router/esm2015/router.js" />
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/position.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="36" column="80" selection-start-line="36" selection-start-column="80" selection-end-line="36" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/environments/environment.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -518,13 +432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/position-model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/style.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -540,13 +447,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist.component.spec.ts" />
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/concert-model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="3" selection-start-line="3" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/event.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -558,13 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="9" column="18" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/accommodation.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="73" selection-start-line="27" selection-start-column="60" selection-end-line="27" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -589,27 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="18" column="15" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="7" column="68" lean-forward="true" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/accommodation-model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -621,13 +493,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="61" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -645,10 +510,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/event-model.ts">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-detail/artist-detail.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        <state relative-caret-position="79">
+          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -659,45 +524,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-detail/artist-detail.component.ts">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="53" column="24" selection-start-line="53" selection-start-column="24" selection-end-line="53" selection-end-column="24" />
+        <state relative-caret-position="221">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.ts">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        <state relative-caret-position="295">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.html">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/concert-model.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="44" selection-start-column="44" selection-end-column="44" />
+        <state relative-caret-position="357">
+          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/user.service.ts">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="131" column="41" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        <state relative-caret-position="363">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -708,40 +559,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.html">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="45" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artistcard/artistcard.component.ts">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        <state relative-caret-position="210">
+          <caret line="23" column="3" lean-forward="true" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/routing/routing.module.ts">
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/frame-for-artist-details/frame-for-artist-details.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="35" column="42" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-list/artist-list.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        <state relative-caret-position="34">
+          <caret line="2" column="54" lean-forward="true" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/artist.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
+        <state relative-caret-position="448">
           <caret line="46" column="79" selection-start-line="46" selection-start-column="79" selection-end-line="46" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/routing/routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="34" column="69" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="55" column="89" lean-forward="true" selection-start-line="55" selection-start-column="89" selection-end-line="55" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/artist/artist-detail3/artist-detail3.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/position-model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/event-model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/event-detail/event-detail.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/event/frame-for-event-details/frame-for-event-details.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/accommodation.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/home/home.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="18" column="49" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/about/about.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/user/login/login.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/user-model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/user/profile-edit/profile-edit.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/shared/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="56" column="13" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/node_modules/typescript/lib/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="14672" column="12" selection-start-line="14672" selection-start-column="12" selection-end-line="14672" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my-app/src/app/user/profile/profile.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>

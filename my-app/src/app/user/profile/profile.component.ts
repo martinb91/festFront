@@ -8,21 +8,14 @@ import {Router} from "@angular/router";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
-currentUser: UserModel;
+export class ProfileComponent {
+user: UserModel;
 
   constructor(private _userService: UserService, public router : Router) {
-  this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  }
-  /*
-    ngOnInit() {
-      this.user = this._userService.getCurrentUser();
-    }*/
-
-  ngOnInit() {
+  this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-// login out from the app
+
   logOut() {
     this._userService.logOut()
       .subscribe(
@@ -30,7 +23,6 @@ currentUser: UserModel;
           this.router.navigate(['/login']);
         },
         error => {
-
         });
   }
 }

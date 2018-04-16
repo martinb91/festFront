@@ -14,39 +14,36 @@ export class FrameForArtistDetailsComponent implements OnInit {
 
   private _artist :ArtistModel;
   private _concerts : ConcertModel[];
+  private _artistId : number;
 
   constructor(
     private artistService: ArtistService,
     private _route: ActivatedRoute,
     private _concertService : ConcertService) {
-
+    this._artistId = +this._route.snapshot.params['id'];
   }
   ngOnInit() {
-    this.getArtist();
-    this.getConcersOfArtist();
-  }
-
-  getArtist(){
-    const artistId = +this._route.snapshot.params['id'];
-    if (artistId) {
-      const artist$ = this.artistService.getArtistById(artistId);
-      artist$
-        .subscribe(art => this._artist = art
-        );
+    if (this._artistId){
+      this.getArtist();
+      this.getConcersOfArtist();
     }else{
       this._artist = new ArtistModel();
     }
   }
 
+  getArtist(){
+      const artist$ = this.artistService.getArtistById(this._artistId);
+      artist$
+        .subscribe(art => this._artist = art
+        );
+  }
+
   getConcersOfArtist(){
-    const artistId = +this._route.snapshot.params['id'];
-    if(artistId){
-      this._concertService.getConcertsByArtistID(artistId)
+      this._concertService.getConcertsByArtistID(this._artistId)
         .subscribe( data => {
           this._concerts = data
         }
       )
-    }
   }
 
 }

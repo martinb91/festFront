@@ -22,8 +22,8 @@ export class ProfileEditComponent implements OnInit {
   onSubmit() {
     if (this.user.id) {
       this._userService.updateUser(this.user);
-    } else {
-      this._userService.register(this.user);
+    } else { //reg ág
+      // this._userService.register(this.user);
     }
     this._router.navigate(['/user']);
   }

@@ -13,8 +13,8 @@ import {AccommodationModel} from "../../shared/accommodation-model";
   styleUrls: ['./frame-for-event-details.component.css']
 })
 export class FrameForEventDetailsComponent implements OnInit {
-  private event: EventModel;
-  private evId: number;
+  private _event: EventModel;
+  private  _evId: number;
   private _concerts : ConcertModel[];
   private _accommodations : AccommodationModel[];
 
@@ -22,34 +22,34 @@ export class FrameForEventDetailsComponent implements OnInit {
               private _concertService : ConcertService,
               private _eventService : EventService,
               private _accService : AccommodationService) {
+    this._evId = +this._route.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.evId = +this._route.snapshot.params['id'];
-    this.getEvent();
-    this.getConcersOfEvent();
-    this.getAccommodations();
-  }
-
-  getEvent(){
-    if (this.evId) {
-      this._eventService.getEventById(this.evId)
-        .subscribe(evm => this.event = evm );
+    if(this._evId) {
+      this.getEvent();
+      this.getConcersOfEvent();
+      this.getAccommodations();
+    }else {
+      this._event= new EventModel();
     }
   }
 
+  getEvent(){
+      this._eventService.getEventById(this._evId)
+        .subscribe(evm => this._event = evm );
+  }
+
   getConcersOfEvent(){
-    if(this.evId){
-      this._concertService.getConcertsByEventID(this.evId)
+      this._concertService.getConcertsByEventID(this._evId)
         .subscribe( data => {
             this._concerts = data
           }
         )
-    }
   }
 
   getAccommodations() {
-    this._accService.getAllAccommodations()
+    this._accService.getAccommodationsByFestId(this._evId)
       .subscribe(data => this._accommodations = data);
   }
 
