@@ -31,22 +31,6 @@ export class UserService {
       )
   }
 
-/*  register(param?: UserModel) {
-    if (param) {
-      this._user = new UserModel({
-        id: 0,
-        ...param
-      });
-
-      this._allUsers = [
-        ...this._allUsers,
-        this._user
-      ];
-    }
-    this.isLoggedin = true;
-    console.log('be vagyunk-e lepve:', this.isLoggedin);
-  }*/
-
   logout() {
     this._user = new UserModel();
     this.isLoggedin = false;
@@ -76,6 +60,7 @@ export class UserService {
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         let user = response.json().principal;// the returned user object is a principal object
+        console.log(response);
         if (user) {
           this._user=user;
           this.isLoggedin=response.json().authorized;
@@ -87,11 +72,17 @@ export class UserService {
   logOut() {
     // remove user from local storage to log user out
     this.logout();
-    return this._http.post(environment.Spring_API_URL+"logout",{})
+    return this._http.post(environment.Spring_API_URL+"/logout",{}) // ez nincs megvalósítva, de nem is kell
       .map((response: Response) => {
         localStorage.removeItem('currentUser');
       });
 
   }
 
+  register(user: UserModel, pw : string) {
+    user.password=pw;
+    console.log(user);
+    return this._http.post(environment.Spring_API_URL+"/account/register",user).map((user: UserModel)=>
+      localStorage.setItem('currentUser', JSON.stringify(user)));
+  }
 }

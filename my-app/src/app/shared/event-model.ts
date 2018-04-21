@@ -3,8 +3,8 @@ import {PositionModel} from "./position-model";
 export class EventModel {
   id?: number;
   name: string;
-  beginDate: string;
-  endDate: string;
+  beginDate: Date;
+  endDate: Date;
   pictureURL: string;
   description: string;
   position: PositionModel;

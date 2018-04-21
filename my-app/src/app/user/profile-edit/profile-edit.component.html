@@ -13,12 +13,12 @@
       <form #profileForm="ngForm" (ngSubmit)="onSubmit()">
 
         <div class="form-group">
-          <label for="nev">Név</label>
-          <input type="text" id="nev"
+          <label for="name">Teljes név</label>
+          <input type="text" id="name"
                  class="form-control mb-3"
                  placeholder="név"
                  required
-                 [(ngModel)]="user.name" name="name"
+                 [(ngModel)]="user.fullName" name="name"
                  #name="ngModel"
           >
           <alert type="danger" *ngIf="name.touched && name.invalid">
@@ -41,63 +41,24 @@
         </div>
 
         <div class="form-group">
-          <label for="address">Lakcím</label>
-          <input type="text" id="address"
+          <label for="userName">Felhasználó név</label>
+          <input type="text" id="userName"
                  class="form-control mb-3"
-                 placeholder="Lakcím"
+                 placeholder="Felhasználó név"
                  required
-                 [(ngModel)]="user.address" name="address"
-                 #address="ngModel"
+                 [(ngModel)]="user.username" name="username"
+                 #username="ngModel"
           >
-          <alert type="danger" *ngIf="address.touched && address.invalid">
+          <alert type="danger" *ngIf="username.touched && username.invalid">
             Kötelező mező!
           </alert>
         </div>
 
-        <div class="form-group">
-          <label for="dateOfBirth">Születési idő</label>
-          <input type="date" id="dateOfBirth"
-                 class="form-control mb-3"
-                 placeholder="születési idő"
-                 required
-                 [(ngModel)]="user.dateOfBirth" name="dateOfBirth"
-                 #address="ngModel"
-          >
-          <alert type="danger" *ngIf="address.touched && address.invalid">
-            Kötelező mező!
-          </alert>
-        </div>
-
-        <div class="form-group">
-          <label class="pr-5">Nemed</label>
-
-          <div class="form-check form-check-inline">
-            <label class="form-check-label" for="fiu">
-              <input type="radio" id="fiu"
-                     class="form-check-input"
-                     [(ngModel)]="user.gender" name="gender"
-                     value="male"
-              >Fiú
-            </label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <label class="form-check-label" for="lany">
-              <input type="radio" id="lany"
-                     class="form-check-input"
-                     [(ngModel)]="user.gender" name="gender"
-                     value="female"
-              >Lány
-            </label>
-          </div>
-
-        </div>
-
-        <div class="form-group mt-3">
-          <label for="profilePictureUrl">Profil kép URL</label>
+ <!--       <div class="form-group mt-3">
+          <label for="profilePictureUrl">Profil kép</label>
           <input type="text" id="profilePictureUrl"
                  class="form-control mb-3"
-                 placeholder="profilkepem url-je"
+                 placeholder="Profilkép"
                  required
                  [(ngModel)]="user.profilePictureUrl" name="profilePictureUrl"
                  #profilePictureUrl="ngModel"
@@ -106,17 +67,16 @@
                  *ngIf="profilePictureUrl.touched && profilePictureUrl.invalid">
             Kötelező mező!
           </alert>
-        </div>
+        </div>-->
 
         <ng-container *ngIf="!user.id">
 
           <div class="form-group">
-            <label for="registerPassword">Jelszó</label>
-            <input type="password" id="registerPassword"
+            <label for="password">Jelszó</label>
+            <input type="password" id="password"
                    class="form-control"
-                   title="kis, nagybetű és szám, legalább nyolc karakter hosszan"
-                   placeholder="jelszó"
-                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
+                   placeholder="Jelszó"
+                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,20}"
                    required
                    ngModel name="pass1"
                    #pass1="ngModel"
@@ -124,12 +84,10 @@
           </div>
 
           <div class="form-group">
-            <label for="registerPassword2">Jelszó</label>
-            <input type="password" id="registerPassword2"
+            <label for="password2">Jelszó</label>
+            <input type="password" id="password2"
                    class="form-control"
-                   title="kis, nagybetű és szám, legalább nyolc karakter hosszan"
-                   placeholder="jelszó ismet"
-                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
+                   placeholder="Jelszó ismét"
                    required
                    ngModel name="pass2"
                    #pass2="ngModel"
@@ -140,9 +98,16 @@
             A jelszavak nem megfelelőek!
           </alert>
 
-          <div class="text-center mb-3">
+<!--          <div class="text-center mb-3">
             <button type="submit" class="btn btn-primary btn-lg"
                     [disabled]="profileForm.invalid || (pass1.value !== pass2.value)"
+            > Regisztráció
+            </button>
+          </div>-->
+          <div class="text-center mb-3">
+            <button type="button" class="btn btn-primary btn-lg"
+                    [disabled]="profileForm.invalid || (pass1.value !== pass2.value)"
+                    (click)="createUser(pass1.value)"
             > Regisztráció
             </button>
           </div>

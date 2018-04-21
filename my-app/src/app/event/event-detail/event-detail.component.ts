@@ -8,6 +8,7 @@ import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/takeUntil';
 import {Style} from "../../shared/artist-model";
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import { MouseEvent } from '@agm/core';
 
 
 @Component({
@@ -20,6 +21,11 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   viewForm = true;
   private _destroy$ = new Subject<void>();
   public myForm: FormGroup;
+  settings = {
+    bigBanner: true,
+    timePicker: true,
+    defaultOpen: false
+  }
 
   constructor(private _route: ActivatedRoute,
               private _eventService: EventService,
@@ -40,10 +46,10 @@ export class EventDetailComponent implements OnInit, OnDestroy {
         styles: this._fb.array([]),
         beginDate: new FormControl({value: this._event.beginDate, disabled: true}),
         endDate: new FormControl({value: this._event.endDate, disabled: true}),
-        // beginDate: new FormControl({value: new Date(this.event.beginDate).toLocaleDateString()  + new Date(this.event.beginDate).toLocaleTimeString(), disabled: true}),
-        // endDate: new FormControl({value: new Date(this.event.endDate).toLocaleDateString()  + new Date(this.event.endDate).toLocaleTimeString(), disabled: true}),
+/*        beginDate: new FormControl({value: new Date(this._event.beginDate), disabled: true}),
+        endDate: new FormControl({value: new Date(this._event.endDate), disabled: true}),*/
         position: this._fb.group({
-          id: new FormControl({value: this._event.position.id}),
+          id: [this._event.position.id],
           x: new FormControl({value: this._event.position.x, disabled: true}),
           y: new FormControl({value: this._event.position.y, disabled: true}),
           city: new FormControl({value: this._event.position.city, disabled: true})
@@ -66,6 +72,13 @@ export class EventDetailComponent implements OnInit, OnDestroy {
         })
       });
     }
+
+
+  }
+
+  markerDragEnd($event: MouseEvent) {
+   this._event.position.x = $event.coords.lat;
+   this._event.position.y = $event.coords.lng;
   }
 
   ngOnDestroy() {
@@ -84,7 +97,8 @@ export class EventDetailComponent implements OnInit, OnDestroy {
     if (s) { sVal = s; }
     console.log(sVal.style);
     return this._fb.group({
-      style: [sVal.style]
+      style: [sVal.style],
+      id: [sVal.id]
     })
   }
 
@@ -96,11 +110,11 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   editMode(){
     this.viewForm = false;
     // this.myForm.get('name').enable();
+    //
     this.myForm.enable();
   }
 
   onSubmit(model: FormGroup) {
-    console.log(model.valueOf());
     this._eventService.save(model.value)
       .takeUntil(this._destroy$)
       .subscribe(

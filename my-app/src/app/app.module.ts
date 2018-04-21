@@ -22,10 +22,14 @@ import 'moment/locale/hu';
 import {HttpModule} from "@angular/http";
 import {StyleComponent} from "./artist/style.component";
 import { ConcertListComponent } from './concert/concert-list/concert-list.component';
-import { ConcertcardComponent } from './concert/concertcard/concertcard.component';
 import {ConcertService} from "./shared/concert.service";
 import { AccommodationListComponent } from './accommodation/accommodation-list/accommodation-list.component';
 import {AccommodationService} from "./shared/accommodation.service";
+import {AgmCoreModule} from "@agm/core";
+import {AngularDateTimePickerModule} from "angular2-datetimepicker";
+import { ConcertDetailComponent } from './concert/concert-detail/concert-detail.component';
+import { AccommodationDetailsComponent } from './accommodation/accommodation-details/accommodation-details.component';
+// import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
 
 @NgModule({
   declarations: [
@@ -39,8 +43,9 @@ import {AccommodationService} from "./shared/accommodation.service";
     ArtistcardComponent,
     StyleComponent,
     ConcertListComponent,
-    ConcertcardComponent,
-    AccommodationListComponent
+    AccommodationListComponent,
+    ConcertDetailComponent,
+    AccommodationDetailsComponent
   ],
   imports: [
     CollapseModule.forRoot(),
@@ -49,8 +54,12 @@ import {AccommodationService} from "./shared/accommodation.service";
     RoutingModule,
     FormsModule,
     HttpClientModule,
+    AngularDateTimePickerModule,
     HttpModule,
     MomentModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDZs-O5Vb71bgxvWMtiC0xHUO5SWRGM3Vw'
+    }),
     ReactiveFormsModule
   ],
   providers: [EventService, UserService, PositionService, ArtistService, ConcertService, LoggedInGuard, AccommodationService],

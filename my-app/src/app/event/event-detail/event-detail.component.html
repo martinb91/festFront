@@ -10,7 +10,7 @@
       </div>
 
       <div class="card-body">
-        <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+        <form [formGroup]="myForm">
           <div class="form-group">
             <label>Esemény neve</label>
             <input type="text" placeholder="Fellépő neve" required class="form-control" formControlName="name" >
@@ -22,24 +22,41 @@
             <label>Az eseményről egy kis ismertető</label>
             <textarea type="text" class="form-control" placeholder="Esemény leírása" required formControlName="description" ></textarea>
           </div>
+          <ng-container *ngIf="viewForm; else editDates">
           <div class="form-group">
             <label>Az esemény kezdet</label>
-            <input type="text" class="form-control"  placeholder="Fesztivál kezdés" required formControlName="beginDate" >
-            <!--useValueAsDate -->
+            <p>{{_event.beginDate | amDateFormat:'LLL'}}</p>
           </div>
           <div class="form-group">
             <label>Az esemény vége</label>
-            <input type="text" class="form-control" placeholder="Fesztivál vége" required formControlName="endDate" >
+            <p>{{_event.endDate | amDateFormat:'LLL'}}</p>
           </div>
+          </ng-container>
+          <ng-template #editDates>
+            <div class="form-group">
+              <label>Az esemény kezdet</label>
+              <angular2-date-picker formControlName="beginDate" [settings]="settings" disabled="true"></angular2-date-picker>
+            </div>
+            <div class="form-group">
+              <label>Az esemény vége</label>
+              <angular2-date-picker formControlName="endDate" [settings]="settings" disabled="true"></angular2-date-picker>
+            </div>
+          </ng-template>
           <div class="panel panel-default" formGroupName="position">
           <div class="form-group">
             <label>Az esemény X koordinátája</label>
-            <input type="text" class="form-control" placeholder="X koordináta" required formControlName="x" >
+            <input type="text" class="form-control" [(ngModel)]="_event.position.x" placeholder="X koordináta" required formControlName="x" >
           </div>
           <div class="form-group">
             <label>Az esemény Y koordinátája</label>
-            <input type="text" class="form-control" placeholder="Y koordináta" required formControlName="y" >
+            <input type="text" class="form-control" placeholder="Y koordináta" [(ngModel)]="_event.position.y" required formControlName="y" >
           </div>
+            <ng-container *ngIf="_event.id && viewForm">
+            <agm-map [latitude]="_event.position.x" [longitude]="_event.position.y">
+              <agm-marker [latitude]="_event.position.x" [longitude]="_event.position.y" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+            </agm-map>
+              {{_event.position | json}}
+            </ng-container>
           <div class="form-group">
             <label>Az esemény címe szövegesen</label>
             <input type="text" class="form-control" placeholder="Település" required formControlName="city" >
@@ -76,7 +93,8 @@
                 </button>
               </ng-container>
               <ng-template #editButtons>
-                <button type="submit"
+                <button type="button"
+                        (click)="onSubmit(myForm)"
                         class="btn btn-primary btn-lg"
                         [disabled]="myForm.invalid"
                 >Mentés

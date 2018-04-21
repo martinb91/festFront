@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EventModel} from "../../shared/event-model";
+import {ArtistModel} from "../../shared/artist-model";
 
 @Component({
   selector: 'app-eventcard',
@@ -9,9 +10,16 @@ import {EventModel} from "../../shared/event-model";
 export class EventcardComponent implements OnInit {
   @Input() esemeny: EventModel;
 
-  constructor() { }
+  @Output() stylePush = new EventEmitter<string>();
+
+  constructor() {
+  }
 
   ngOnInit() {
+
+  }
+  refreshByStyle(val: string){
+    this.stylePush.emit(val)
   }
 
 }

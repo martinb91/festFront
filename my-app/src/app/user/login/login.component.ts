@@ -17,10 +17,10 @@ export class LoginComponent implements OnInit {
   }
 
   login(email: string, password: string) {
-    if (!this._userService.login(email, password)) {
-      this.error = 'Hiba a belepesi adatokban. Probald ujra!';
-    } else {
+    if (this._userService.login(email, password)) {
       this._router.navigate(['/user']);
+    } else {
+      this.error = 'Rossz felhasználónév vagy jelszó';
     }
   }
 

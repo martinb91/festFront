@@ -3,8 +3,8 @@
   <div class="col-auto text-center">
     <label>Keresés az fellépők között</label>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Fellépő neve">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Fellépő neve" #searchNameInput>
+      <input class="form-control mr-sm-2" type="search" placeholder="Fellépő stílusa" #searchStyleInput>
     </form>
   </div>
   <div class="my-2 my-lg-0 text-center" *ngIf="userService.isLoggedin">
@@ -17,12 +17,13 @@
   </div>
 
 </div>
-{{artistsGrouppedBy3$ | async | json}}
-<div class="card-deck pt-5 pb-5" *ngFor="let artists of artistsGrouppedBy3$ | async">
+<!--{{artistsGrouppedBy3$ | async | json}}-->
+
+<br>
+<div class="card-columns">
   <app-artistcard class="col col-md-6 col-lg-4"
-                  *ngFor="let artist of artists "
+                  *ngFor="let artist of artistList$ | async "
                   (stylePush)="artistsByStyle($event)"
-                 [fellepo]="artist"
-  >
-  </app-artistcard>
+                  [fellepo]="artist"
+  ></app-artistcard>
 </div>

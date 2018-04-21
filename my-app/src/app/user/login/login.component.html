@@ -18,10 +18,9 @@
         <div class="card-body">
           <div class="form-group">
             <label for="loginEmail">Email</label>
-            <input title="hibás email cím" name="loginEmail" type="email"
+            <input name="loginEmail" type="email"
                    class="form-control" id="loginEmail"
                    placeholder="email"
-                   value="angular"
                    #email
             >
             <small id="emailHelp" class="form-text text-muted">a címed
@@ -32,17 +31,10 @@
             <label for="loginPassword">Jelszó</label>
             <input name="loginPassword" type="password"
                    class="form-control" id="loginPassword"
-                   value="angular"
                    #password
                    placeholder="jelszó">
           </div>
-          <div class="form-check">
-            <label class="form-check-label">
-              <input name="rememberMe" type="checkbox"
-                     class="form-check-input">
-              emlékezz rám
-            </label>
-          </div>
+
           <button class="btn btn-primary"
                   (click)="login(email.value, password.value)"
           >

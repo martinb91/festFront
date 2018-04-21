@@ -4,7 +4,7 @@ import {EventModel} from "./event-model";
 export class ConcertModel {
   id?: number;
   artist: ArtistModel;
-  beginDate: string;
+  beginDate: Date;
   festival: EventModel;
 
 

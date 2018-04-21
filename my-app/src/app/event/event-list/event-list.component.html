@@ -24,6 +24,7 @@
   <app-eventcard class="col col-md-6 col-lg-4"
                  *ngFor="let ev of evg"
                  [esemeny]="ev"
+                 (stylePush)="eventsByStyle($event)"
   >
   </app-eventcard>
 </div>

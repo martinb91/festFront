@@ -4,6 +4,8 @@ import {PositionService} from "./position.service";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
 import {environment} from "../../environments/environment";
+import {ArtistModel} from "./artist-model";
+import {toNumber} from "ngx-bootstrap/timepicker/timepicker.utils";
 
 @Injectable()
 export class EventService {
@@ -21,7 +23,9 @@ export class EventService {
   }
 
   save(eventModel: EventModel) {
-    console.log(eventModel);
+    console.log(eventModel.endDate = new Date( eventModel.endDate));
+    console.log(eventModel.beginDate = new Date( eventModel.beginDate));
+
     if (eventModel.id) { // update
       return this._http.put(`${environment.Spring_API_URL}/festival/${eventModel.id}.json`, eventModel);
     } else { // create
@@ -29,4 +33,10 @@ export class EventService {
     }
   }
 
+  getEventsByStyle(style: string) {
+    return this._http.get<EventModel>(`${environment.Spring_API_URL}/festival/style/${style}.json`)
+      .map(data => Object.values(data).map(fest => new EventModel(fest)));
+  }
 }
+
+// AIzaSyDZs-O5Vb71bgxvWMtiC0xHUO5SWRGM3Vw  API-key Google Maps
