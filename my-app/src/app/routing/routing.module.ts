@@ -15,6 +15,10 @@ import {ArtistComponent} from "../artist/artist.component";
 import {ArtistDetail3Component} from "../artist/artist-detail3/artist-detail3.component";
 import {FrameForArtistDetailsComponent} from "../artist/frame-for-artist-details/frame-for-artist-details.component";
 import {FrameForEventDetailsComponent} from "../event/frame-for-event-details/frame-for-event-details.component";
+import {AccommodationDetailsComponent} from "../accommodation/accommodation-details/accommodation-details.component";
+import {AccommodationComponent} from "../accommodation/accommodation.component";
+import {ConcertComponent} from "../concert/concert.component";
+import {ConcertDetailComponent} from "../concert/concert-detail/concert-detail.component";
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -25,6 +29,20 @@ const routes: Routes = [
       {path: '', component: EventListComponent},
       {path: 'new', component: FrameForEventDetailsComponent, canActivate: [LoggedInGuard]},
       {path: ':id', component: FrameForEventDetailsComponent, canActivate: [LoggedInGuard]}
+    ]
+  },
+  {
+    path: 'accommodation',
+    component: AccommodationComponent,
+    children: [
+      {path: 'new', component: AccommodationDetailsComponent, canActivate: [LoggedInGuard]},
+    ]
+  },
+  {
+    path: 'concert',
+    component: ConcertComponent,
+    children: [
+      {path: 'new', component: ConcertDetailComponent, canActivate: [LoggedInGuard]},
     ]
   },
   {
@@ -41,7 +59,7 @@ const routes: Routes = [
     path: 'user',
     children: [
       {path: '', component: ProfileComponent, canActivate: [LoggedInGuard]},
-      {path: 'edit', component: ProfileEditComponent, canActivate: [LoggedInGuard]},
+      // {path: 'edit', component: ProfileEditComponent, canActivate: [LoggedInGuard]},
       {path: 'login', component: LoginComponent},
       {path: 'registration', component: ProfileEditComponent}
     ]
@@ -60,6 +78,7 @@ export class RoutingModule {
   static routableComponents = [
     FrameForArtistDetailsComponent,
     FrameForEventDetailsComponent,
+    AccommodationDetailsComponent,
     HomeComponent,
     EventComponent,
     EventListComponent,
@@ -69,7 +88,7 @@ export class RoutingModule {
     ProfileComponent,
     ProfileEditComponent,
     ArtistComponent,
-    ArtistDetail3Component, //ArtistDetailComponent ArtistDetail2Component Ha működnének ezeket is importálni kellene
+    ArtistDetail3Component,
     ArtistListComponent,
     PageNotFoundComponent
   ];

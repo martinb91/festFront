@@ -20,4 +20,10 @@ export class ConcertService {
     return this._http.get<ConcertModel>(`${environment.Spring_API_URL}/concert/byEvent/${id}.json`)
       .map(data => Object.values(data).map(concert => new ConcertModel(concert)));
   }
+
+  save(concert: ConcertModel) {
+    concert.beginDate = new Date( concert.beginDate);
+    console.log(concert);
+    return this._http.post(`${environment.Spring_API_URL}/concert/new.json`, concert);
+  }
 }

@@ -21,6 +21,8 @@
           >Regisztráció</a>
         </ng-container>
         <ng-template #loggedInBlock>
+          <a class="nav-item nav-link" routerLinkActive="active" routerLink="/accommodation/new">Új Szállás</a>
+          <a class="nav-item nav-link" routerLinkActive="active" routerLink="/concert/new">Új Koncert</a>
           <a class="nav-item nav-link tn btn-primary text-light ml-lg-2 btn-sm" routerLinkActive="active" routerLink="/user">Profile</a>
           <a class="nav-item nav-link btn btn-primary text-light ml-lg-2 btn-sm" routerLinkActive="active"
              (click)="logout()">Kilépés

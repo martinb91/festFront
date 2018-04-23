@@ -24,7 +24,7 @@ export class AccommodationService {
     if (accommodationModel.id) { // update
       return this._http.put(`${environment.Spring_API_URL}/accommodation/${accommodationModel.id}.json`, accommodationModel);
     } else { // create
-      return this._http.post(`${environment.Spring_API_URL}/accommodation/new.json`, accommodationModel);
+     return this._http.post(`${environment.Spring_API_URL}/accommodation/new.json`, accommodationModel);
     }
   }
 

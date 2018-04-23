@@ -9,6 +9,7 @@ import 'rxjs/add/operator/takeUntil';
 import {Style} from "../../shared/artist-model";
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import { MouseEvent } from '@agm/core';
+import {PositionModel} from "../../shared/position-model";
 
 
 @Component({
@@ -57,17 +58,20 @@ export class EventDetailComponent implements OnInit, OnDestroy {
       });
       this._event.styles.forEach(arti => this.addStyle(arti));
     }else {
+      this._event.position = new PositionModel();
+      this._event.position.x = 47.5;
+      this._event.position.y = 19.05;
       this.myForm = this._fb.group({
         name: [''],
         id: [0],
         description: [''],
         styles: this._fb.array([]),
-        beginDate: [''],
-        endDate: [''],
+        beginDate: [new Date()],
+        endDate: [new Date()],
         position: this._fb.group({
           id: [0],
-          x: [''],
-          y: [''],
+          x: [0],
+          y: [0],
           city: ['']
         })
       });

@@ -35,11 +35,11 @@
           <ng-template #editDates>
             <div class="form-group">
               <label>Az esemény kezdet</label>
-              <angular2-date-picker formControlName="beginDate" [settings]="settings" disabled="true"></angular2-date-picker>
+              <angular2-date-picker formControlName="beginDate" [settings]="settings" ></angular2-date-picker>
             </div>
             <div class="form-group">
               <label>Az esemény vége</label>
-              <angular2-date-picker formControlName="endDate" [settings]="settings" disabled="true"></angular2-date-picker>
+              <angular2-date-picker formControlName="endDate" [settings]="settings" ></angular2-date-picker>
             </div>
           </ng-template>
           <div class="panel panel-default" formGroupName="position">
@@ -51,12 +51,17 @@
             <label>Az esemény Y koordinátája</label>
             <input type="text" class="form-control" placeholder="Y koordináta" [(ngModel)]="_event.position.y" required formControlName="y" >
           </div>
-            <ng-container *ngIf="_event.id && viewForm">
-            <agm-map [latitude]="_event.position.x" [longitude]="_event.position.y">
-              <agm-marker [latitude]="_event.position.x" [longitude]="_event.position.y" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+            <ng-container *ngIf="_event.id && viewForm; else modifyMap">
+            <agm-map [latitude]="_event.position.x" [longitude]="_event.position.y" [zoom]="14">
+              <agm-marker [latitude]="_event.position.x" [longitude]="_event.position.y" [markerDraggable]="false"></agm-marker>
             </agm-map>
-              {{_event.position | json}}
             </ng-container>
+            <ng-template #modifyMap>
+              <a> A pozíciót megadhatod a marker mozgatásával is.</a>
+              <agm-map [latitude]="_event.position.x" [longitude]="_event.position.y" [zoom]="12">
+                <agm-marker [latitude]="_event.position.x" [longitude]="_event.position.y" [markerDraggable]="true"  (dragEnd)="markerDragEnd($event)"></agm-marker>
+              </agm-map>
+            </ng-template>
           <div class="form-group">
             <label>Az esemény címe szövegesen</label>
             <input type="text" class="form-control" placeholder="Település" required formControlName="city" >

@@ -28,8 +28,8 @@ import {AccommodationService} from "./shared/accommodation.service";
 import {AgmCoreModule} from "@agm/core";
 import {AngularDateTimePickerModule} from "angular2-datetimepicker";
 import { ConcertDetailComponent } from './concert/concert-detail/concert-detail.component';
-import { AccommodationDetailsComponent } from './accommodation/accommodation-details/accommodation-details.component';
-// import { NKDatetimeModule } from 'ng2-datetime/ng2-datetime';
+import { AccommodationComponent } from './accommodation/accommodation.component';
+import { ConcertComponent } from './concert/concert.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ import { AccommodationDetailsComponent } from './accommodation/accommodation-det
     ConcertListComponent,
     AccommodationListComponent,
     ConcertDetailComponent,
-    AccommodationDetailsComponent
+    AccommodationComponent,
+    ConcertComponent
   ],
   imports: [
     CollapseModule.forRoot(),
@@ -58,7 +59,8 @@ import { AccommodationDetailsComponent } from './accommodation/accommodation-det
     HttpModule,
     MomentModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDZs-O5Vb71bgxvWMtiC0xHUO5SWRGM3Vw'
+      apiKey: 'AIzaSyDZs-O5Vb71bgxvWMtiC0xHUO5SWRGM3Vw',
+      libraries: ["places"]
     }),
     ReactiveFormsModule
   ],

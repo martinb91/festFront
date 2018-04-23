@@ -1,3 +1,75 @@
-<p>
-  concert-detail works!
-</p>
+<div class="container">
+  <div class="card mb-4 col-11 col-sm-8 mx-auto p-0">
+
+    <div class="card-header">
+      <div class="bg-light text-center">
+        <h3>Új koncert felvitele</h3>
+      </div>
+    </div>
+
+    <div class="card-body">
+
+      <form #concertForm="ngForm" >
+        <div class="form-group">
+          <label for="selectFest">Fesztivál kiválasztása</label>
+          <select class="form-control" id="selectFest"
+                  [(ngModel)]="concert.festival.id"
+                  name="festival"
+                  required
+                  #festival="ngModel"
+          >
+            <option [selected]="true" [hidden]="true" disabled value=""></option>
+            <option *ngFor="let ev of events$ | async" [value]="ev.id">
+              {{ ev.name }}
+            </option>
+          </select>
+          <alert type="danger" *ngIf="festival.touched && festival.value === ''">Kötelező mező!
+          </alert>
+
+        </div>
+
+        <div class="form-group">
+          <label for="selectArtist">Fellépő választása</label>
+          <select class="form-control" id="selectArtist"
+                  [(ngModel)]="concert.artist.id"
+                  name="artist"
+                  required
+                  #artist="ngModel"
+          >
+            <option [selected]="true" [hidden]="true" disabled value=""></option>
+            <option *ngFor="let artist of artists$ | async" [value]="artist.id">
+              {{ artist.name }}
+            </option>
+          </select>
+          <alert type="danger" *ngIf="artist.touched && artist.value === ''">Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+        <label>Koncert időpontja</label>
+        <angular2-date-picker *ngIf="concert.beginDate" type="date" id="beginDate"
+                                required
+                                [(ngModel)]="concert.beginDate" name="beginDate"
+                                #beginDate="ngModel"
+                                [settings]="settings" >
+          </angular2-date-picker>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="submit"
+                  (click)="onSubmit()"
+                  class="btn btn-primary btn-lg"
+                  [disabled]="concertForm.invalid"
+          >Koncert felvitele
+          </button>
+          <button type="button"
+                  class="btn btn-secondary btn-lg"
+                  routerLink="/home"
+          >Mégsem
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

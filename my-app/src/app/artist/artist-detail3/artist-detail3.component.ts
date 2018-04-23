@@ -29,8 +29,6 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
   }
 
   onSubmit(model: FormGroup) {
-    console.log(model.value);
-    console.log(this._artist);
             this._artistService.save(model.value)
               .takeUntil(this._destroy$)
               .subscribe(

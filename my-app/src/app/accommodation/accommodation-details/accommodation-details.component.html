@@ -1,3 +1,169 @@
-<p>
-  accommodation-details works!
-</p>
+<div class="container">
+  <div class="card mb-4 col-11 col-sm-8 mx-auto p-0">
+
+    <div class="card-header">
+      <div class="bg-light text-center">
+        <h3>Új szállás felvitele</h3>
+      </div>
+    </div>
+
+    <div class="card-body">
+
+      <form #accForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="name">Szállás neve</label>
+          <input type="text" class="form-control mb-3" id="name"
+                 placeholder="Név"
+                 required
+                 [(ngModel)]="_accommodation.name" name="name"
+                 #name="ngModel"
+          >
+          <alert type="danger" *ngIf="name.touched && name.invalid">Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+          <label for="price">Ár egy éjszakára</label>
+          <input type="number" class="form-control mb-3" id="price"
+                 placeholder="Ár/fő/éj"
+                 required
+                 [(ngModel)]="_accommodation.price" name="price"
+                 #price="ngModel"
+          >
+          <alert type="danger" *ngIf="price.touched && price.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+          <label for="heads">Befogadható személyek száma</label>
+          <input type="number" class="form-control mb-3" id="heads"
+                 placeholder="Maximális férőhelyek száma"
+                 required
+                 [(ngModel)]="_accommodation.heads" name="heads"
+                 #heads="ngModel"
+          >
+          <alert type="danger" *ngIf="heads.touched && heads.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+          <label for="description">A szálláshely leírása</label>
+          <textarea type="text" class="form-control mb-3" id="description"
+                 placeholder="Információk"
+                 required
+                 [(ngModel)]="_accommodation.description" name="description"
+                 #description="ngModel"
+          ></textarea>
+          <alert type="danger" *ngIf="description.touched && description.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+        <h4 class="my-3">Elérhetőségek</h4>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control mb-3" id="email"
+                 placeholder="Email cím"
+                 required
+                 [(ngModel)]="_accommodation.email" name="email"
+                 #email="ngModel"
+          >
+          <alert type="danger" *ngIf="email.touched && email.invalid">Kötelező mező!
+          </alert>
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Telefonszám:</label>
+          <input type="text" class="form-control mb-3" id="phoneNumber"
+                 placeholder="Telefonszám:"
+                 required
+                 [(ngModel)]="_accommodation.phoneNumber" name="phoneNumber"
+                 #phoneNumber="ngModel"
+          >
+          <alert type="danger" *ngIf="phoneNumber.touched && phoneNumber.invalid">Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+          <label for="website">Weboldal:</label>
+          <input type="text" class="form-control mb-3" id="website"
+                 placeholder="Weboldal URL-je"
+                 required
+                 [(ngModel)]="_accommodation.website" name="email"
+                 #website="ngModel"
+          >
+          <alert type="danger" *ngIf="website.touched && website.invalid">Kötelező mező!
+          </alert>
+        </div>
+        <h4 class="my-3">Pozíció</h4>
+
+        <div class="form-group">
+          <label for="x">X koordináta</label>
+          <input type="number" class="form-control mb-3" id="x"
+                 placeholder="X koordináta"
+                 required
+                 [(ngModel)]="_accommodation.address.x" name="x"
+                 #x="ngModel"
+          >
+          <alert type="danger" *ngIf="x.touched && x.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+          <label for="y">Y koordináta</label>
+          <input type="number" class="form-control mb-3" id="y"
+                 placeholder="Y koordináta"
+                 required
+                 [(ngModel)]="_accommodation.address.y" name="y"
+                 #y="ngModel"
+          >
+          <alert type="danger" *ngIf="y.touched && y.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+          <label for="city">Cím</label>
+          <input type="text" class="form-control mb-3" id="city"
+                 placeholder="Pontos cím"
+                 required
+                 [(ngModel)]="_accommodation.address.city" name="city"
+                 #city="ngModel"
+          >
+          <alert type="danger" *ngIf="city.touched && city.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="form-group">
+          <label for="adrdescription">Leírás</label>
+          <input type="text" class="form-control mb-3" id="adrdescription"
+                 placeholder="Egyéb infók a pozícióhóz, ha van"
+                 required
+                 [(ngModel)]="_accommodation.address.description" name="adrdescription"
+                 #adrdescription="ngModel"
+          >
+          <alert type="danger" *ngIf="adrdescription.touched && adrdescription.invalid">
+            Kötelező mező!
+          </alert>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="submit"
+                  class="btn btn-primary btn-lg"
+                  [disabled]="accForm.invalid"
+          >Szállás rögzítése
+          </button>
+          <button type="button"
+                  class="btn btn-secondary btn-lg"
+                  routerLink="/accommodation"
+          >Mégsem
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
