@@ -1,14 +1,42 @@
 <div class="row  justify-content-around px-5 ">
 
   <div class="col-auto text-center">
-    <label>Keresés az események között</label>
+    <label>Keresés a fesztiválok között</label>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Esemény neve">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
     </form>
   </div>
-  <div class="form-group">
-    <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+  <div class="col-auto text-center">
+    <label>Részletes keresés:</label>
+    <form class="form-inline my-2 my-lg-0" >
+      <div class="form-group">
+    <label for="searchMapControl"> Hely: </label>
+    <input id="searchMapControl" placeholder="hely keresése" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchMapControl">
+      </div>
+      <div class="form-group">
+        <label for="maxFromPos"> Távolság a helytől: </label>
+        <input id="maxFromPos"  placeholder="maximum távolság a helytől" [(ngModel)]="maxFromPos" type="number" name="maxFromPos" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="begin"> Ettől:</label>
+        <input id="begin" [(ngModel)]="begin" placeholder="Ettől" type="date" name="begin" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="end"> Eddig: </label>
+        <input id="end" [(ngModel)]="end" placeholder="Eddig" type="date" name="end" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="styleName"> Stílus: </label>
+        <input id="styleName" [(ngModel)]="styleName" placeholder="stílus" type="text" name="styleName" class="form-control">
+      </div>
+      <label class="checkbox-inline"> Ingyenes: <input type="checkbox" [(ngModel)]="isFree" name="isFree"></label>
+
+      <button  (click)="onSubmit()"
+              class="btn btn-primary btn-lg"
+      >Keresés
+      </button>
+    </form>
   </div>
 
   <div class="my-2 my-lg-0 text-center" *ngIf="userService.isLoggedin">

@@ -2,9 +2,10 @@
 
   <div class="col-auto text-center">
     <label>Keresés az fellépők között</label>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Fellépő neve" #searchNameInput>
-      <input class="form-control mr-sm-2" type="search" placeholder="Fellépő stílusa" #searchStyleInput>
+    <form  class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search"  placeholder="Fellépő neve" #searchNameInput>
+      <input class="form-control mr-sm-2" type="search"  placeholder="Fellépő stílusa" #searchStyleInput>
+      <div><button type="reset" (click)="backToDefault()" class="btn btn-default" >Mutasd az összeset</button></div>
     </form>
   </div>
   <div class="my-2 my-lg-0 text-center" *ngIf="userService.isLoggedin">

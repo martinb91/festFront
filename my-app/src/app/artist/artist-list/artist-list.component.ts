@@ -24,9 +24,6 @@ export class ArtistListComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.artistList$ = this._artistService.getAllArtists();
-    this.artistList$ = this.addFilter(this.artistList$);
-    this.artistList$ = this.addStyleFilter(this.artistList$);
       /*.map(data => {
         return data.reduce((acc, curr: ArtistModel, ind: number) => {
             if (ind % 3 === 0) {
@@ -36,11 +33,13 @@ export class ArtistListComponent implements OnInit, AfterViewInit {
             return acc;
           }, []);
       });*/
-
+      this.backToDefault();
   }
 
   artistsByStyle(style){
     this.artistList$ = this._artistService.getArtistsByStyle(style);
+    this.artistList$ = this.addFilter(this.artistList$);
+    this.artistList$ = this.addStyleFilter(this.artistList$);
   }
 
   addFilter(artists:Observable<ArtistModel[]>){
@@ -73,7 +72,8 @@ export class ArtistListComponent implements OnInit, AfterViewInit {
             } else {
               return artists.filter(
                 artist => {for (let i=0; i<artist.styles.length; i++){
-                    return artist.styles[i].style.toLowerCase().indexOf(filterText.toLowerCase()) > -1
+                  if(artist.styles[i].style.toLowerCase().indexOf(filterText.toLowerCase()) > -1)
+                    return true;
                   }
                 }
               );
@@ -119,5 +119,9 @@ export class ArtistListComponent implements OnInit, AfterViewInit {
       );
   }
 
-
+  backToDefault() { // nem az igazi
+    this.artistList$ = this._artistService.getAllArtists();
+    this.artistList$ = this.addFilter(this.artistList$);
+    this.artistList$ = this.addStyleFilter(this.artistList$);
+  }
 }
