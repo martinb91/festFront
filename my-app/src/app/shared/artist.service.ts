@@ -12,7 +12,6 @@ import {ArtistModel} from './artist-model';
 export class ArtistService {
 
   constructor( private _http: HttpClient) {
-       // this._artists = this._getMockData();
   }
 
   getArtistById(id: number) {
@@ -48,44 +47,5 @@ export class ArtistService {
   }
 
 
-  /*    public _getMockData() : ArtistModel[] {
-      return [
-        new ArtistModel({
-          'id': '31',
-          'name': 'AWS',
-          'styles': ['metal', 'rock'],
-          'pictureURL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/A_Dal_2018_AWS_2018-02-17.jpg/1200px-A_Dal_2018_AWS_2018-02-17.jpg',
-          'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
-        }),
-        new ArtistModel({
-          'id': '32',
-          'name': 'Tesco Disco',
-          'styles': ['indie rock', 'electroclash'],
-          'pictureURL': 'https://phenomenon.hu/kep/nagyelonezet/koncertozon2.jpg',
-          'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
-        }),
 
-        new ArtistModel({
-          'id': '34',
-          'name': 'Lajkó Félix',
-          'styles': ['zongora', 'hegedű', 'citera', 'folk', 'népzene'],
-          'pictureURL': 'https://i.ytimg.com/vi/x-SuyWy7LRw/maxresdefault.jpg',
-          'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
-        }),
-        new ArtistModel({
-          'id': '33',
-          'name': 'Fekete Pákó',
-          'styles': ['mulatós', 'low-quality'],
-          'pictureURL': 'http://ocdn.eu/pulscms-transforms/1/oJPktkpTURBXy9kYjYxMDhlMDZhZjgwMjZiN2E4M2Q2ZmMwYWVlYjA5Yi5qcGeRkwXNAxTNAbw',
-          'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
-        }),
-        new ArtistModel({
-          'id': '35',
-          'name': 'Alvin és a mókusok',
-          'styles': ['rock', 'punk', 'szókimondó'],
-          'pictureURL': 'http://www.alvinrecords.com/images/hirek/RAF%20bori19box_kicsi_INSTA.jpg',
-          'description': 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo.'
-        })
-      ];
-    }*/
 }

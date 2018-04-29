@@ -30,6 +30,9 @@ import {AngularDateTimePickerModule} from "angular2-datetimepicker";
 import { ConcertDetailComponent } from './concert/concert-detail/concert-detail.component';
 import { AccommodationComponent } from './accommodation/accommodation.component';
 import { ConcertComponent } from './concert/concert.component';
+import { PictureComponent } from './picture/picture.component';
+import { FileUploadModule } from 'ng2-file-upload';
+import {LoadFileService} from "./shared/load-file.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { ConcertComponent } from './concert/concert.component';
     AccommodationListComponent,
     ConcertDetailComponent,
     AccommodationComponent,
-    ConcertComponent
+    ConcertComponent,
+    PictureComponent
   ],
   imports: [
     CollapseModule.forRoot(),
@@ -57,6 +61,7 @@ import { ConcertComponent } from './concert/concert.component';
     HttpClientModule,
     AngularDateTimePickerModule,
     HttpModule,
+    FileUploadModule,
     MomentModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDZs-O5Vb71bgxvWMtiC0xHUO5SWRGM3Vw',
@@ -64,7 +69,7 @@ import { ConcertComponent } from './concert/concert.component';
     }),
     ReactiveFormsModule
   ],
-  providers: [EventService, UserService, PositionService, ArtistService, ConcertService, LoggedInGuard, AccommodationService],
+  providers: [EventService, UserService, PositionService, ArtistService, ConcertService, LoggedInGuard, AccommodationService, LoadFileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

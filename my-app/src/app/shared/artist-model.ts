@@ -1,7 +1,7 @@
 export class ArtistModel {
   id?: number;
   name: string;
-  pictureURL: string;
+  picture: string;
   description: string;
   styles: Style[];
 
@@ -15,7 +15,7 @@ export class ArtistModel {
     return {
       'id': 0,
       'name': '',
-      'pictureURL': '',
+      'picture': '',
       'description': '',
       'styles' : [ ]
     };

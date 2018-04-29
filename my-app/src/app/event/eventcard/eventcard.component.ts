@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EventModel} from "../../shared/event-model";
 import {ArtistModel} from "../../shared/artist-model";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-eventcard',
@@ -16,7 +17,7 @@ export class EventcardComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.esemeny.picture ? this.esemeny.picture = environment.Spring_API_URL + '/files/' + this.esemeny.picture : this.esemeny.picture = 'assets/event.jpg';
   }
   refreshByStyle(val: string){
     this.stylePush.emit(val)

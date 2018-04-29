@@ -7,6 +7,7 @@ import {Location} from "@angular/common";
 import {Subject} from "rxjs/Subject";
 import 'rxjs/add/operator/takeUntil';
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-artist-detail3',
@@ -15,6 +16,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 })
 export class ArtistDetail3Component implements OnInit, OnDestroy{
   @Input() _artist: ArtistModel;
+  private picPrms : String;
   viewForm = true;
   private _destroy$ = new Subject<void>();
   public myForm: FormGroup;
@@ -44,6 +46,8 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
+
+    this._artist.picture ? this._artist.picture = environment.Spring_API_URL + '/files/' + this._artist.picture :  this._artist.picture = 'assets/musicians.png';
     if(this._artist.name){
     this.myForm = this._fb.group({
       name: new FormControl({value: this._artist.name, disabled: true}),
@@ -51,7 +55,8 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
       description: new FormControl({value: this._artist.description, disabled: true}),
       styles: this._fb.array([])
     });
-        this._artist.styles.forEach(arti => this.addStyle(arti));
+    this.picPrms = "artists/upload/" + this._artist.id.toString();
+      this._artist.styles.forEach(arti => this.addStyle(arti));
     }else{
       this.myForm = this._fb.group({
         name: [''],
@@ -60,6 +65,7 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
         styles: this._fb.array([])
       });
     }
+
   }
 
   addStyle(s?: Style) {

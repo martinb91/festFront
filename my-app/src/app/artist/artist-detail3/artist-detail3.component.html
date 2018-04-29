@@ -8,19 +8,26 @@
           <ng-template #modify><h3>Fellépő szerkesztese</h3></ng-template>
         </div>
       </div>
-
       <div class="card-body">
+        <div *ngIf="_artist?.picture" class="form-group">
+          <img class="card-img img-fluid" [src]="_artist.picture" height="160" alt="Card image cap">
+        </div>
+        <div *ngIf="_artist.id && !viewForm">
+          <app-picture [picParams]="picPrms">
+          </app-picture>
+        </div>
         <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
           <div class="form-group">
             <label>Fellépő neve</label>
-            <input type="text" placeholder="Fellépő neve" required class="form-control" formControlName="name" >
+            <input type="text" placeholder="Fellépő neve" required class="form-control" formControlName="name">
             <!--<small *ngIf="!myForm.controls.name.valid" class="text-danger">
               Name is required (minimum 5 characters).
             </small>-->
           </div>
           <div class="form-group">
             <label>Fellépőről egy kis ismertető</label>
-            <textarea type="text" class="form-control" placeholder="Fellépő leírása" required formControlName="description" ></textarea>
+            <textarea type="text" class="form-control" placeholder="Fellépő leírása" required
+                      formControlName="description"></textarea>
           </div>
 
           <div formArrayName="styles">
@@ -31,11 +38,11 @@
                       (click)="removeStyle(i)">x</span>
               </div>
               <div class="panel-body" [formGroupName]="i">
-                <app-style [group]="myForm.controls.styles.controls[i]" [viewForm]="viewForm" ></app-style>
+                <app-style [group]="myForm.controls.styles.controls[i]" [viewForm]="viewForm"></app-style>
               </div>
             </div>
 
-            <div  *ngIf="!viewForm" class="margin-20">
+            <div *ngIf="!viewForm" class="margin-20">
               <a (click)="addStyle()" style="cursor: default">
                 Új stílus hozzáadása +
               </a>
@@ -43,38 +50,38 @@
           </div>
           <pre>form value: <br>{{myForm.value | json}}</pre>
 
-      <div class="text-center mb-3">
-        <ng-container *ngIf="userService.isLoggedin"><!--ez a jó-->
-        <!--<ng-container *ngIf="!userService.isLoggedin">-->
-          <ng-container *ngIf="viewForm; else editButtons">
+          <div class="text-center mb-3">
+            <ng-container *ngIf="userService.isLoggedin"><!--ez a jó-->
+              <!--<ng-container *ngIf="!userService.isLoggedin">-->
+              <ng-container *ngIf="viewForm; else editButtons">
+                <button type="button"
+                        class="btn btn-primary btn-lg"
+                        (click)="editMode()"
+                >Szerkesztes
+                </button>
+              </ng-container>
+              <ng-template #editButtons>
+                <button type="submit"
+                        class="btn btn-primary btn-lg"
+                        [disabled]="myForm.invalid"
+                >Mentés
+                </button>
+                <button type="button"
+                        class="btn btn-danger btn-lg"
+                        (click)="delete(_artist.id)"
+                        *ngIf="_artist.id"
+                >Törlés
+                </button>
+              </ng-template>
+            </ng-container>
             <button type="button"
                     class="btn btn-primary btn-lg"
-                    (click)="editMode()"
-            >Szerkesztes
+                    (click)="navigateBack()"
+            >Vissza
             </button>
-          </ng-container>
-          <ng-template #editButtons>
-            <button type="submit"
-                    class="btn btn-primary btn-lg"
-                    [disabled]="myForm.invalid"
-            >Mentés
-            </button>
-            <button type="button"
-                    class="btn btn-danger btn-lg"
-                    (click)="delete(_artist.id)"
-                    *ngIf="_artist.id"
-            >Törlés
-            </button>
-          </ng-template>
-        </ng-container>
-        <button type="button"
-                class="btn btn-primary btn-lg"
-                (click)="navigateBack()"
-        >Vissza
-        </button>
+          </div>
+        </form>
       </div>
-      </form>
+    </ng-container>
   </div>
-  </ng-container>
-</div>
 </div>

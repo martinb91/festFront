@@ -10,6 +10,7 @@ import {Style} from "../../shared/artist-model";
 import {FormArray, FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import { MouseEvent } from '@agm/core';
 import {PositionModel} from "../../shared/position-model";
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -22,6 +23,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   viewForm = true;
   private _destroy$ = new Subject<void>();
   public myForm: FormGroup;
+  private picPrms : String;
   settings = {
     bigBanner: true,
     timePicker: true,
@@ -39,6 +41,8 @@ export class EventDetailComponent implements OnInit, OnDestroy {
 
   //  Ezt még újra kell gondolni, a struktúrának követni kell a backendet
   ngOnInit() {
+    this._event.picture ? this._event.picture = environment.Spring_API_URL + '/files/' + this._event.picture : this._event.picture = 'assets/event.jpg';
+    this.picPrms = "festival/upload/" + this._event.id.toString();
     if(this._event.name) {
       this.myForm = this._fb.group({
         name: new FormControl({value: this._event.name, disabled: true}),

@@ -5,6 +5,7 @@ import {AccommodationService} from "../../shared/accommodation.service";
 import {PositionModel} from "../../shared/position-model";
 import {Subject} from "rxjs/Subject";
 import {Location} from "@angular/common";
+import {MouseEvent} from "@agm/core";
 
 @Component({
   selector: 'app-accommodation-details',
@@ -14,6 +15,11 @@ import {Location} from "@angular/common";
 export class AccommodationDetailsComponent implements OnInit {
   private _accommodation : AccommodationModel;
   private _destroy$ = new Subject<void>();
+  settings = {
+    bigBanner: true,
+    timePicker: true,
+    defaultOpen: false
+  }
 
   constructor(
     private _accommodationService : AccommodationService,
@@ -44,5 +50,10 @@ export class AccommodationDetailsComponent implements OnInit {
     this._accommodation.address = new PositionModel();
     this._accommodation.address.x=47.5;
     this._accommodation.address.y=19;
+  }
+
+  markerDragEnd($event: MouseEvent) {
+    this._accommodation.address.x = $event.coords.lat;
+    this._accommodation.address.y = $event.coords.lng;
   }
 }

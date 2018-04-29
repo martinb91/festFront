@@ -122,6 +122,10 @@
             Kötelező mező!
           </alert>
         </div>
+        <a> A pozíciót megadhatod a marker mozgatásával is.</a>
+        <agm-map [latitude]="_accommodation.address.x" [longitude]="_accommodation.address.y" [zoom]="12">
+          <agm-marker [latitude]="_accommodation.address.x" [longitude]="_accommodation.address.y" [markerDraggable]="true"  (dragEnd)="markerDragEnd($event)"></agm-marker>
+        </agm-map>
 
         <div class="form-group">
           <label for="city">Cím</label>
@@ -140,13 +144,9 @@
           <label for="adrdescription">Leírás</label>
           <input type="text" class="form-control mb-3" id="adrdescription"
                  placeholder="Egyéb infók a pozícióhóz, ha van"
-                 required
                  [(ngModel)]="_accommodation.address.description" name="adrdescription"
                  #adrdescription="ngModel"
           >
-          <alert type="danger" *ngIf="adrdescription.touched && adrdescription.invalid">
-            Kötelező mező!
-          </alert>
         </div>
 
         <div class="text-center mb-3">
