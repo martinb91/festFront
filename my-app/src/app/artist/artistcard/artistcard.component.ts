@@ -17,8 +17,15 @@ export class ArtistcardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fellepo.picture ? this.fellepo.picture = environment.Spring_API_URL + '/files/' + this.fellepo.picture : this.fellepo.picture = 'assets/musicians.png';
+    if(!this.fellepo.picture || this.fellepo.picture.includes('assets/', 0)) {
+      this.fellepo.picture = 'assets/musicians.png';
+    }else if(this.fellepo.picture.includes(environment.Spring_API_URL, 0)){
+      // do nothing
+    }else{
+      this.fellepo.picture =  environment.Spring_API_URL + '/files/' + this.fellepo.picture;
+    }
 }
+
   refreshByStyle(val: string){
     this.stylePush.emit(val)
   }

@@ -38,11 +38,11 @@ export class ArtistListComponent implements OnInit, AfterViewInit {
 
   artistsByStyle(style){
     this.artistList$ = this._artistService.getArtistsByStyle(style);
-    this.artistList$ = this.addFilter(this.artistList$);
+    this.artistList$ = this.addNameFilter(this.artistList$);
     this.artistList$ = this.addStyleFilter(this.artistList$);
   }
 
-  addFilter(artists:Observable<ArtistModel[]>){
+  addNameFilter(artists:Observable<ArtistModel[]>){
    return artists.flatMap(
       artists => {
         return this.filteredNameText$.map(
@@ -121,7 +121,7 @@ export class ArtistListComponent implements OnInit, AfterViewInit {
 
   backToDefault() { // nem az igazi
     this.artistList$ = this._artistService.getAllArtists();
-    this.artistList$ = this.addFilter(this.artistList$);
+    this.artistList$ = this.addNameFilter(this.artistList$);
     this.artistList$ = this.addStyleFilter(this.artistList$);
   }
 }

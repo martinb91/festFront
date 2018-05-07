@@ -1,4 +1,4 @@
-import {Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, NgZone, OnInit, ViewChild} from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { EventModel } from '../../shared/event-model';
 import { EventService } from '../../shared/event.service';
@@ -6,17 +6,21 @@ import { UserService } from '../../shared/user.service';
 import {google} from "google-maps";
 import { MapsAPILoader } from '@agm/core';
 import {FormControl} from "@angular/forms";
+import {ArtistModel} from "../../shared/artist-model";
+import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.css']
 })
-export class EventListComponent implements OnInit {
-  public eventsGrouppedBy3$: Observable<EventModel[][]>;
+export class EventListComponent implements OnInit, AfterViewInit {
+  public eventsGrouppedBy3$: Observable<EventModel[]>;
   @ViewChild("search")
   public searchElementRef: ElementRef;
   public searchMapControl: FormControl;
+  @ViewChild('searchNameInput') searchNameInput: ElementRef;
+  private filteredNameText$ = new BehaviorSubject<string>(null);
 
   //vars for search module
   posX : number;
@@ -40,16 +44,9 @@ export class EventListComponent implements OnInit {
   ngOnInit() {
     this.searchMapControl = new FormControl();
 
-    this.eventsGrouppedBy3$ = this._eventService.getAllEvents()
-      .map(data => {
-        return data.reduce((acc, curr: EventModel, ind: number) => {
-          if (ind % 3 === 0) {
-            acc.push([]);
-          }
-          acc[acc.length - 1].push(curr);
-          return acc;
-        }, []);
-      });
+    this.eventsGrouppedBy3$ = this._eventService.getAllEvents();
+
+    this.eventsGrouppedBy3$ = this.addNameFilter(this.eventsGrouppedBy3$);
 
     this.mapsAPILoader.load().then(() => {
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
@@ -72,16 +69,8 @@ export class EventListComponent implements OnInit {
     }
 
   eventsByStyle(style) {
-    this.eventsGrouppedBy3$ = this._eventService.getEventsByStyle(style)
-      .map(data => {
-        return data.reduce((acc, curr: EventModel, ind: number) => {
-          if (ind % 3 === 0) {
-            acc.push([]);
-          }
-          acc[acc.length - 1].push(curr);
-          return acc;
-        }, []);
-      });
+    this.eventsGrouppedBy3$ = this._eventService.getEventsByStyle(style);
+    this.eventsGrouppedBy3$ = this.addNameFilter(this.eventsGrouppedBy3$);
   }
 
   onSubmit(){
@@ -97,7 +86,46 @@ export class EventListComponent implements OnInit {
         acc[acc.length - 1].push(curr);
         return acc;
       }, []);
-    });;
+    });
+  }
+
+  addNameFilter(events:Observable<EventModel[]>){
+    return events.flatMap(
+      events => {
+        return this.filteredNameText$.map(
+          filterText => {
+            if (filterText === null) {
+              return events;
+            } else {
+              return events.filter(
+                event => {
+                  return event.name.toLowerCase().indexOf(filterText.toLowerCase()) > -1;
+                }
+              );
+            }
+          }
+        );
+      }
+    );
+  }
+
+  ngAfterViewInit(): void {
+    Observable.fromEvent(this.searchNameInput.nativeElement, 'keyup')
+      .delay(600)
+      .map(
+        (event: Event) => {
+          return (event.srcElement as HTMLInputElement).value;
+        }
+      )
+      .distinctUntilChanged()
+      .subscribe(
+        text => {
+          if (text.length === 0) {
+            text = null;
+          }
+          this.filteredNameText$.next(text);
+        }
+      );
   }
 
 }

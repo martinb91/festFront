@@ -3,7 +3,7 @@
   <div class="col-auto text-center">
     <label>Keresés a fesztiválok között</label>
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Esemény neve">
+      <input class="form-control mr-sm-2" type="search" placeholder="Esemény neve" #searchNameInput>
     </form>
   </div>
   <div class="col-auto text-center">
@@ -49,10 +49,9 @@
 </div>
 
 
-<div class="card-deck pt-5 pb-5" *ngFor="let evg of eventsGrouppedBy3$ | async">
+<div class="card-deck pt-5 pb-5" *ngFor="let event of eventsGrouppedBy3$ | async">
   <app-eventcard class="col col-md-6 col-lg-4"
-                 *ngFor="let ev of evg"
-                 [esemeny]="ev"
+                 [esemeny]="event"
                  (stylePush)="eventsByStyle($event)"
   >
   </app-eventcard>

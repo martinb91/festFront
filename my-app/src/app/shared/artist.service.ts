@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '../../environments/environment';
 import 'rxjs/add/observable/zip';
@@ -37,15 +37,17 @@ export class ArtistService {
   }
 
   deleteById(id: number) {
-    console.log(id);
-    this._http.delete(`${environment.Spring_API_URL}/artists/${id}.json`);
+    const params = new HttpParams().set('id', id.toString());
+    return this._http.delete(`${environment.Spring_API_URL}/artists/delete`, { params })
+      .subscribe(
+        result => console.log(result),
+        err => console.error(err)
+      );
   }
 
   getArtistsByStyle(style : string) {
     return this._http.get<ArtistModel>(`${environment.Spring_API_URL}/artists/style/${style}.json`)
       .map(data => Object.values(data).map(artist => new ArtistModel(artist)));
   }
-
-
 
 }

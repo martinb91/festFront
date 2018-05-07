@@ -39,7 +39,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
     this.viewForm = !!evId;
   }
 
-  //  Ezt még újra kell gondolni, a struktúrának követni kell a backendet
+
   ngOnInit() {
     this._event.picture ? this._event.picture = environment.Spring_API_URL + '/files/' + this._event.picture : this._event.picture = 'assets/event.jpg';
     this.picPrms = "festival/upload/" + this._event.id.toString();
@@ -134,6 +134,10 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   }
   navigateBack() {
     this._location.back();
+  }
+
+  delete(){
+
   }
 
 }

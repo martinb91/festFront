@@ -75,8 +75,9 @@
             <div *ngFor="let style of myForm.controls.styles.controls; let i = index" class="panel panel-default">
               <div class="panel-heading">
                 <span>Stílus {{i+1}}</span>
-                <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.styles.controls.length > 1"
-                      (click)="removeStyle(i)">x</span>
+                <button type="button" class="close" aria-label="Törlés" *ngIf="myForm.controls.styles.controls.length > 1" (click)="removeStyle(i)">
+                  <span *ngIf="!viewForm" aria-hidden="true">&times;</span>
+                </button>
               </div>
               <div class="panel-body" [formGroupName]="i">
                 <app-style [group]="myForm.controls.styles.controls[i]" [viewForm]="viewForm" ></app-style>
@@ -127,122 +128,3 @@
     </ng-container>
   </div>
 </div>
-
-
-<!--
-<div class="container">
-
-  <div class="card mb-4 col-11 col-sm-8 mx-auto p-0">
-
-    <div class="card-header">
-      <div class="bg-light text-center">
-        <h3 *ngIf="!event.id; else modify">Új esemény létrehozása</h3>
-        <ng-template #modify><h3>Esemeny szerkesztese</h3></ng-template>
-      </div>
-    </div>
-
-    <div class="card-body">
-      <form #eventForm="ngForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label for="esemeny">Esemény címe:</label>
-          <input type="text" id="esemeny"
-                 class="form-control mb-3"
-                 placeholder="Esemény címe"
-                 required
-                 [disabled]="!editForm"
-                 [(ngModel)]="event.name" name="name"
-                 #name="ngModel"
-          >
-          <alert type="danger" *ngIf="name.touched && name.invalid">
-            Kötelező mező!
-          </alert>
-        </div>
-
-        <div class="form-group">
-          <label for="idopont">Esemény időpontja</label>
-          <input type="text" id="idopont"
-                 class="form-control mb-3"
-                 placeholder="Esemény időpontja"
-                 required
-                 [disabled]="!editForm"
-                 [(ngModel)]="event.date" name="date"
-                 #date="ngModel"
-          >
-          <alert type="danger" *ngIf="date.touched && date.invalid">
-            Kötelező mező!
-          </alert>
-        </div>
-
-          <div class="form-group mt-3">
-            <label for="pictureUrl">Válassz képet az eseményhez</label>
-            <input type="text" id="pictureUrl"
-                   class="form-control mb-3"
-                   placeholder="Eseményhez tartozo kep url-je"
-                   required
-                   [disabled]="!editForm"
-                   [(ngModel)]="event.pictureURL" name="picUrl"
-                   #picUrl="ngModel"
-            >
-            <alert type="danger" *ngIf="picUrl.touched && picUrl.invalid">
-              Kötelező mező!
-            </alert>
-          </div>
-
-        <div class="form-group">
-          <div class="form-group mt-3">
-            <label for="position">Válassz poziciót az eseményhez</label>
-            <input type="number" class="form-control mb-3" id="position"
-                   placeholder="Pozició"
-                   required
-                   [disabled]="!editForm"
-                   [(ngModel)]="event.positionId" name="positionId"
-                   #positionId="ngModel"
-            >
-            <alert type="danger" *ngIf="positionId.touched && positionId.invalid">
-              Kötelező mező!
-            </alert>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="leiras">Esemény leírása</label>
-          <textarea id="leiras"
-                    class="form-control"
-                    placeholder="Esemény leírása"
-                    required
-                    [disabled]="!editForm"
-                    [(ngModel)]="event.description" name="description"
-                    #description="ngModel"
-          ></textarea>
-          <alert type="danger" *ngIf="description.touched && description.invalid">
-            Kötelező mező!
-          </alert>
-        </div>
-        <div class="text-center mb-3">
-          <button type="submit"
-                  class="btn btn-primary btn-lg"
-                  *ngIf="editForm"
-                  [disabled]="eventForm.invalid"
-                  value="létrehozás"
-          >Mentes
-          </button>
-          <button type="button"
-                  class="btn btn-primary btn-lg"
-                  *ngIf="!editForm && userService.isLoggedin"
-                  (click)="editForm = true"
-          >Szerkesztes
-          </button>
-          <button type="button"
-                  class="btn btn-primary btn-lg"
-                  *ngIf="!userService.isLoggedin"
-                  (click)="navigateBack()"
-          >Vissza
-          </button>
-
-        </div>
-      </form>
-    </div>
-  </div>
-
-</div>
--->

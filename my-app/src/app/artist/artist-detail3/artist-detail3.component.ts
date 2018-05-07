@@ -56,7 +56,7 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
       styles: this._fb.array([])
     });
     this.picPrms = "artists/upload/" + this._artist.id.toString();
-      this._artist.styles.forEach(arti => this.addStyle(arti));
+    this._artist.styles.forEach(arti => this.addStyle(arti));
     }else{
       this.myForm = this._fb.group({
         name: [''],
@@ -96,8 +96,12 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
   }
 
   delete(id: number){
-    if(this._artistService.deleteById(id)) {
-      this.navigateBack();
+    if(this._artistService.deleteById(id).valueOf()){
+      setTimeout(() =>
+        {
+          this.navigateBack();
+        },
+        333);
     }
   }
 }

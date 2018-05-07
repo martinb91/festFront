@@ -17,7 +17,13 @@ export class EventcardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.esemeny.picture ? this.esemeny.picture = environment.Spring_API_URL + '/files/' + this.esemeny.picture : this.esemeny.picture = 'assets/event.jpg';
+    if(!this.esemeny.picture || this.esemeny.picture.includes('assets/', 0)) {
+      this.esemeny.picture = 'assets/event.jpg';
+    }else if(this.esemeny.picture.includes(environment.Spring_API_URL, 0)){
+      // do nothing
+    }else{
+      this.esemeny.picture =  environment.Spring_API_URL + '/files/' + this.esemeny.picture;
+    }
   }
   refreshByStyle(val: string){
     this.stylePush.emit(val)

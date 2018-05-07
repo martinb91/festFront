@@ -28,7 +28,7 @@ export class FrameForEventDetailsComponent implements OnInit {
   ngOnInit() {
     if(this._evId) {
       this.getEvent();
-      this.getConcersOfEvent();
+      this.getConcertsOfEvent();
       this.getAccommodations();
     }else {
       this._event= new EventModel();
@@ -40,7 +40,7 @@ export class FrameForEventDetailsComponent implements OnInit {
         .subscribe(evm => this._event = evm );
   }
 
-  getConcersOfEvent(){
+  getConcertsOfEvent(){
       this._concertService.getConcertsByEventID(this._evId)
         .subscribe( data => {
             this._concerts = data
