@@ -64,6 +64,14 @@ export class EventService {
 
   }
 
+  deleteById(id: number) {
+     return this._http.delete(`${environment.Spring_API_URL}/festival/delete/${id}`)
+      .subscribe(
+        result => {return result.valueOf()},
+        err => console.error(err)
+      );
+  }
+
 }
 
 // AIzaSyDZs-O5Vb71bgxvWMtiC0xHUO5SWRGM3Vw  API-key Google Maps

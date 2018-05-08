@@ -42,7 +42,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._event.picture ? this._event.picture = environment.Spring_API_URL + '/files/' + this._event.picture : this._event.picture = 'assets/event.jpg';
-    this.picPrms = "festival/upload/" + this._event.id.toString();
+    this.picPrms = "festival/upload/" + this._event.id;
     if(this._event.name) {
       this.myForm = this._fb.group({
         name: new FormControl({value: this._event.name, disabled: true}),
@@ -137,6 +137,14 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   }
 
   delete(){
+    let val = this._eventService.deleteById(this._event.id)
+    if(val){
+      setTimeout(() =>
+        {
+          this.navigateBack();
+        },
+        333);
+    }
 
   }
 

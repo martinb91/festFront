@@ -1,6 +1,6 @@
 <div class="row  justify-content-around px-5 ">
 
-  <div class="col-auto text-center">
+  <div class="col-auto text-center" >
     <label>Keresés az fellépők között</label>
     <form  class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search"  placeholder="Fellépő neve" #searchNameInput>
@@ -20,11 +20,12 @@
 </div>
 <!--{{artistsGrouppedBy3$ | async | json}}-->
 
-<br>
-<div class="card-columns">
+
+<div class="card-columns" >
   <app-artistcard class="col col-md-6 col-lg-4"
                   *ngFor="let artist of artistList$ | async "
                   (stylePush)="artistsByStyle($event)"
                   [fellepo]="artist"
   ></app-artistcard>
 </div>
+

@@ -25,7 +25,7 @@ export class FrameForArtistDetailsComponent implements OnInit {
   ngOnInit() {
     if (this._artistId){
       this.getArtist();
-      this.getConcersOfArtist();
+      this.getConcertsOfArtist();
     }else{
       this._artist = new ArtistModel();
     }
@@ -38,7 +38,7 @@ export class FrameForArtistDetailsComponent implements OnInit {
         );
   }
 
-  getConcersOfArtist(){
+  getConcertsOfArtist(){
       this._concertService.getConcertsByArtistID(this._artistId)
         .subscribe( data => {
           this._concerts = data

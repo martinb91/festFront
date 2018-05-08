@@ -78,15 +78,8 @@ export class EventListComponent implements OnInit, AfterViewInit {
       this.posY=undefined;
       this.posX=undefined;
     }
-    this.eventsGrouppedBy3$ = this._eventService.getEventsByQuery(this.posX, this.posY, this.maxFromPos, this.isFree, this.styleName, this.begin, this.end).map(data => {
-      return data.reduce((acc, curr: EventModel, ind: number) => {
-        if (ind % 3 === 0) {
-          acc.push([]);
-        }
-        acc[acc.length - 1].push(curr);
-        return acc;
-      }, []);
-    });
+    this.eventsGrouppedBy3$ = this._eventService.getEventsByQuery(this.posX, this.posY, this.maxFromPos, this.isFree, this.styleName, this.begin, this.end);
+    this.eventsGrouppedBy3$ = this.addNameFilter(this.eventsGrouppedBy3$);
   }
 
   addNameFilter(events:Observable<EventModel[]>){

@@ -96,13 +96,12 @@ export class ArtistDetail3Component implements OnInit, OnDestroy{
   }
 
   delete(id: number){
-    if(this._artistService.deleteById(id).valueOf()){
+    this._artistService.deleteById(id);
       setTimeout(() =>
         {
           this.navigateBack();
         },
         333);
-    }
   }
 }
 

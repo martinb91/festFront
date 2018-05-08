@@ -48,9 +48,9 @@
 
 </div>
 
-
-<div class="card-deck pt-5 pb-5" *ngFor="let event of eventsGrouppedBy3$ | async">
+<div class="card-columns">
   <app-eventcard class="col col-md-6 col-lg-4"
+                 *ngFor="let event of eventsGrouppedBy3$ | async"
                  [esemeny]="event"
                  (stylePush)="eventsByStyle($event)"
   >

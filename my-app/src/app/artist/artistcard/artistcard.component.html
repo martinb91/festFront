@@ -1,4 +1,5 @@
-<div class="card">
+
+<div class="card mt-3">
   <img *ngIf="fellepo?.picture" class="card-img-top img-fluid" [src]="fellepo.picture" height="160" alt="Card image cap">
   <div class="card-body">
     <h4 class="card-title"> {{fellepo.name}}</h4>
@@ -11,3 +12,4 @@
     <a [routerLink]="['./',fellepo.id]" class="row justify-content-end pr-4">Tovább</a>
   </div>
 </div>
+

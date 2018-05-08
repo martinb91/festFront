@@ -38,11 +38,7 @@ export class ArtistService {
 
   deleteById(id: number) {
     const params = new HttpParams().set('id', id.toString());
-    return this._http.delete(`${environment.Spring_API_URL}/artists/delete`, { params })
-      .subscribe(
-        result => console.log(result),
-        err => console.error(err)
-      );
+    return this._http.delete(`${environment.Spring_API_URL}/artists/delete`, { params });
   }
 
   getArtistsByStyle(style : string) {
