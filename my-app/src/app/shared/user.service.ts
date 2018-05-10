@@ -35,7 +35,7 @@ export class UserService {
     this._user = new UserModel();
     this.isLoggedin = false;
     this._router.navigate(['/home']);
-    console.log('be vagyunk-e lepve:', this.isLoggedin);
+    localStorage.removeItem('currentUser');
   }
 
   getCurrentUser() {
@@ -51,7 +51,7 @@ export class UserService {
     let headers = new Headers();
     headers.append('Accept', 'application/json')
     // creating base64 encoded String from user name and password
-    var base64Credential: string = btoa( user.email+ ':' + user.password);
+    let base64Credential: string = btoa( user.email+ ':' + user.password);
     headers.append("Authorization", "Basic " + base64Credential);
     let options = new RequestOptions();
     options.headers=headers;
@@ -60,7 +60,6 @@ export class UserService {
       .map((response: Response) => {
         // login successful if there's a jwt token in the response
         let user = response.json().principal;// the returned user object is a principal object
-        console.log(response);
         if (user) {
           this._user=user;
           this.isLoggedin=response.json().authorized;
@@ -68,15 +67,6 @@ export class UserService {
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
       });
-  }
-  logOut() {
-    // remove user from local storage to log user out
-    this.logout();
-    return this._http.post(environment.Spring_API_URL+"/logout",{}) // ez nincs megvalósítva, de nem is kell
-      .map((response: Response) => {
-        localStorage.removeItem('currentUser');
-      });
-
   }
 
   register(user: UserModel, pw : string) {

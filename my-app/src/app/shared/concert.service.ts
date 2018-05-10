@@ -23,7 +23,6 @@ export class ConcertService {
 
   save(concert: ConcertModel) {
     concert.beginDate = new Date( concert.beginDate);
-    console.log(concert);
     return this._http.post(`${environment.Spring_API_URL}/concert/new.json`, concert);
   }
 }

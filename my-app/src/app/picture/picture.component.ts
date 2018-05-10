@@ -11,7 +11,7 @@ export class PictureComponent{
 
    @Input('picParams') params : string;
   selectedFiles: FileList;
-  currentFileUpload: File;
+  currentFile: File;
   progress: { percentage: number } = { percentage: 0 };
 
   constructor(private uploadService: LoadFileService, private _location: Location) { }
@@ -32,8 +32,8 @@ export class PictureComponent{
   upload() {
     this.progress.percentage = 0;
 
-    this.currentFileUpload = this.selectedFiles.item(0);
-    this.uploadService.pushFileToStorage(this.currentFileUpload, this.params).subscribe(event => {
+    this.currentFile = this.selectedFiles.item(0);
+    this.uploadService.pushFileToStorage(this.currentFile, this.params).subscribe(event => {
       if (event.type === HttpEventType.UploadProgress) {
         this.progress.percentage = Math.round(100 * event.loaded / event.total);
       } else if (event instanceof HttpResponse) {

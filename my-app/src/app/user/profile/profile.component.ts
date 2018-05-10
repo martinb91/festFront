@@ -14,15 +14,4 @@ user: UserModel;
   constructor(private _userService: UserService, public router : Router) {
   this.user = JSON.parse(localStorage.getItem('currentUser'));
   }
-
-
-  logOut() {
-    this._userService.logOut()
-      .subscribe(
-        data => {
-          this.router.navigate(['/login']);
-        },
-        error => {
-        });
-  }
 }
